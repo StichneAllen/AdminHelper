@@ -609,7 +609,7 @@ SendMessage, 0x50,, 0x4190419,, A
 SendPlay, {T}
 Sleep 500
 SendPlay, /p Уважаемые игроки{!} {enter}
-Sleep 500
+Sleep 29000
 SendMessage, 0x50,, 0x4190419,, A
 SendPlay, {T}
 Sleep 500
