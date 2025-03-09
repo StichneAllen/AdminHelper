@@ -557,7 +557,7 @@ return
 
 !numpad1::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Приятной игры с администрацией второго сервера {^}{-}{^} {enter}
+SendPlay, {space}Приятной игры{!} {enter}
 return
 
 !numpad2::
@@ -1821,6 +1821,3 @@ SendEvent {Click, 670, 878, 2, right}
 sleep 222
 SendPlay {esc}
 return
-
-; АРБУЗ АРБУЗ
-; НЕ АРБУЗ АРБУЗ
