@@ -1,5 +1,4 @@
 #SingleInstance Force
-Gui, Color, 212121
 CheckUIA()
 {
     if (!A_IsCompiled && !InStr(A_AhkPath, "_UIA")) {
@@ -8,6 +7,8 @@ CheckUIA()
     }
 }
 CheckUIA()
+Gui, Color, 212121
+Gui 1:Show, center h600 w800, AdminHelper v1.1.4.1
 
 ; ------------------------------- БИНД КЛАВИШ NUMPAD (ОСНОВНОЕ)-------------------------------
 
