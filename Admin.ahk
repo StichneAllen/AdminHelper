@@ -10,9 +10,9 @@ CheckUIA()
 CheckUIA()
 
 ; Текущая версия скрипта
-currentVersion := "1.0.1"
+currentVersion := "1.0.0"
 
-; Ссылки на GitHub
+; Ссылки на GitHub (используем raw-ссылки)
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/Admin.ahk"
 
@@ -34,6 +34,10 @@ CheckForUpdates() {
     ; Убираем лишние символы (например, переносы строк)
     serverVersion := Trim(serverVersion)
 
+    ; Отладочные сообщения
+    MsgBox, Загружена версия с GitHub: %serverVersion%
+    MsgBox, Текущая версия скрипта: %currentVersion%
+
     ; Сравниваем версии
     if (serverVersion != currentVersion) {
         MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
@@ -49,6 +53,9 @@ CheckForUpdates() {
             return
         }
         newScript := whr.ResponseText
+
+        ; Отладочное сообщение
+        MsgBox, Новый скрипт загружен: %newScript%
 
         ; Сохраняем новый скрипт
         scriptPath := A_ScriptFullPath  ; Полный путь к текущему скрипту
