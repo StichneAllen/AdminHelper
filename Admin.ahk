@@ -1,4 +1,4 @@
-﻿#SingleInstance Force
+#SingleInstance Force
 Gui, Color, 212121
 CheckUIA()
 {
@@ -8,7 +8,81 @@ CheckUIA()
     }
 }
 CheckUIA()
-Gui 1:Show, center h600 w800, AdminHelper v1.1.4.1
+
+; Текущая версия скрипта
+currentVersion := "1.0.0"
+
+; Ссылки на GitHub
+githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
+githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/Admin.ahk"
+
+; Функция для проверки обновлений
+CheckForUpdates() {
+    global currentVersion, githubVersionURL, githubScriptURL
+
+    ; Загружаем версию с GitHub
+    whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+    whr.Open("GET", githubVersionURL, true)
+    whr.Send()
+    whr.WaitForResponse()
+    if (whr.Status != 200) {  ; Проверяем статус ответа (200 = OK)
+        MsgBox, Ошибка: Не удалось загрузить версию с GitHub.
+        return
+    }
+    serverVersion := whr.ResponseText
+
+    ; Убираем лишние символы (например, переносы строк)
+    serverVersion := Trim(serverVersion)
+
+    ; Сравниваем версии
+    if (serverVersion != currentVersion) {
+        MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
+        IfMsgBox, No
+            return
+
+        ; Загружаем новый скрипт
+        whr.Open("GET", githubScriptURL, true)
+        whr.Send()
+        whr.WaitForResponse()
+        if (whr.Status != 200) {  ; Проверяем статус ответа (200 = OK)
+            MsgBox, Ошибка: Не удалось загрузить скрипт с GitHub.
+            return
+        }
+        newScript := whr.ResponseText
+
+        ; Сохраняем новый скрипт
+        scriptPath := A_ScriptFullPath  ; Полный путь к текущему скрипту
+        backupPath := scriptPath ".backup"  ; Создаем резервную копию
+
+        ; Создаем резервную копию старого скрипта
+        FileCopy, %scriptPath%, %backupPath%
+
+        ; Удаляем старый скрипт
+        FileDelete, %scriptPath%
+        if ErrorLevel {
+            MsgBox, Ошибка: Не удалось удалить старый скрипт.
+            return
+        }
+
+        ; Сохраняем новый скрипт
+        FileAppend, %newScript%, %scriptPath%
+        if ErrorLevel {
+            MsgBox, Ошибка: Не удалось сохранить новый скрипт.
+            ; Восстанавливаем резервную копию
+            FileCopy, %backupPath%, %scriptPath%
+            return
+        }
+
+        MsgBox, Скрипт успешно обновлен. Перезапустите скрипт.
+        Run, %A_ScriptFullPath%  ; Перезапускаем скрипт
+        ExitApp  ; Завершаем текущий скрипт
+    } else {
+        MsgBox, У вас актуальная версия скрипта.
+    }
+}
+
+; Проверка обновлений при запуске
+CheckForUpdates()
 
 ; ------------------------------- БИНД КЛАВИШ NUMPAD (ОСНОВНОЕ)-------------------------------
 
