@@ -14,8 +14,8 @@ CheckUIA()
 currentVersion := "6.6.6"
 
 ; Ссылки на GitHub
-githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/Admin.ahk"
-githubScriptURL := "https://raw.githubusercontent.com/ваш_username/ваш_репозиторий/main/script.ahk"
+githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
+githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/Admin.ahk"
 
 ; Функция для проверки обновлений
 CheckForUpdates() {
