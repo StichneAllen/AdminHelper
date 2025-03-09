@@ -9,12 +9,13 @@ CheckUIA()
 }
 CheckUIA()
 
-; Текущая версия скрипта
-currentVersion := "1.0.0"
 
-; Ссылки на GitHub (используем raw-ссылки)
-githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
-githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/Admin.ahk"
+; Текущая версия скрипта
+currentVersion := "6.6.6"
+
+; Ссылки на GitHub
+githubVersionURL := "https://raw.githubusercontent.com/ваш_username/ваш_репозиторий/main/version.txt"
+githubScriptURL := "https://raw.githubusercontent.com/ваш_username/ваш_репозиторий/main/script.ahk"
 
 ; Функция для проверки обновлений
 CheckForUpdates() {
@@ -25,18 +26,10 @@ CheckForUpdates() {
     whr.Open("GET", githubVersionURL, true)
     whr.Send()
     whr.WaitForResponse()
-    if (whr.Status != 200) {  ; Проверяем статус ответа (200 = OK)
-        MsgBox, Ошибка: Не удалось загрузить версию с GitHub.
-        return
-    }
     serverVersion := whr.ResponseText
 
     ; Убираем лишние символы (например, переносы строк)
     serverVersion := Trim(serverVersion)
-
-    ; Отладочные сообщения
-    MsgBox, Загружена версия с GitHub: %serverVersion%
-    MsgBox, Текущая версия скрипта: %currentVersion%
 
     ; Сравниваем версии
     if (serverVersion != currentVersion) {
@@ -48,40 +41,14 @@ CheckForUpdates() {
         whr.Open("GET", githubScriptURL, true)
         whr.Send()
         whr.WaitForResponse()
-        if (whr.Status != 200) {  ; Проверяем статус ответа (200 = OK)
-            MsgBox, Ошибка: Не удалось загрузить скрипт с GitHub.
-            return
-        }
         newScript := whr.ResponseText
-
-        ; Отладочное сообщение
-        MsgBox, Новый скрипт загружен: %newScript%
 
         ; Сохраняем новый скрипт
         scriptPath := A_ScriptFullPath  ; Полный путь к текущему скрипту
-        backupPath := scriptPath ".backup"  ; Создаем резервную копию
-
-        ; Создаем резервную копию старого скрипта
-        FileCopy, %scriptPath%, %backupPath%
-
-        ; Удаляем старый скрипт
-        FileDelete, %scriptPath%
-        if ErrorLevel {
-            MsgBox, Ошибка: Не удалось удалить старый скрипт.
-            return
-        }
-
-        ; Сохраняем новый скрипт
-        FileAppend, %newScript%, %scriptPath%
-        if ErrorLevel {
-            MsgBox, Ошибка: Не удалось сохранить новый скрипт.
-            ; Восстанавливаем резервную копию
-            FileCopy, %backupPath%, %scriptPath%
-            return
-        }
+        FileDelete, %scriptPath%  ; Удаляем старый скрипт
+        FileAppend, %newScript%, %scriptPath%  ; Сохраняем новый скрипт
 
         MsgBox, Скрипт успешно обновлен. Перезапустите скрипт.
-        Run, %A_ScriptFullPath%  ; Перезапускаем скрипт
         ExitApp  ; Завершаем текущий скрипт
     } else {
         MsgBox, У вас актуальная версия скрипта.
@@ -90,6 +57,7 @@ CheckForUpdates() {
 
 ; Проверка обновлений при запуске
 CheckForUpdates()
+
 
 ; ------------------------------- БИНД КЛАВИШ NUMPAD (ОСНОВНОЕ)-------------------------------
 
@@ -1812,6 +1780,3 @@ SendEvent {Click, 670, 878, 2, right}
 sleep 222
 SendPlay {esc}
 return
-
-
-; АРБУЗ АРБУЗ
