@@ -9,9 +9,8 @@ CheckUIA()
 }
 CheckUIA()
 
-
 ; Текущая версия скрипта
-currentVersion := "6.6.6"
+currentVersion := "6.6.7"
 
 ; Ссылки на GitHub
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
@@ -47,6 +46,9 @@ CheckForUpdates() {
         scriptPath := A_ScriptFullPath  ; Полный путь к текущему скрипту
         FileDelete, %scriptPath%  ; Удаляем старый скрипт
         FileAppend, %newScript%, %scriptPath%  ; Сохраняем новый скрипт
+
+        ; Обновляем текущую версию
+        currentVersion := serverVersion
 
         MsgBox, Скрипт успешно обновлен. Перезапустите скрипт.
         ExitApp  ; Завершаем текущий скрипт
