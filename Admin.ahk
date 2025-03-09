@@ -1,7 +1,5 @@
 #SingleInstance Force
 Gui, Color, 212121
-
-; Проверка на UIA
 CheckUIA()
 {
     if (!A_IsCompiled && !InStr(A_AhkPath, "_UIA")) {
@@ -10,126 +8,6 @@ CheckUIA()
     }
 }
 CheckUIA()
-
-; Путь к папке в Program Files
-folderPath := "C:\Program Files\AdminHelper"
-iniFile := folderPath "\tag_settings.ini"
-
-; Функция для проверки и создания папки, если её нет
-EnsureFolderExists() {
-    global folderPath
-    if !FileExist(folderPath)
-    {
-        ; Пытаемся создать папку
-        FileCreateDir, %folderPath%
-        if ErrorLevel
-        {
-            MsgBox, 16, Ошибка, Не удалось создать папку: %folderPath%
-            return false
-        }
-        else
-        {
-            MsgBox, 64, Успех, Папка успешно создана: %folderPath%
-            return true
-        }
-    }
-    return true
-}
-
-; Проверяем и создаем папку при запуске
-if !EnsureFolderExists()
-{
-    ExitApp  ; Завершаем скрипт, если папку не удалось создать
-}
-
-; Загружаем локальную версию из файла
-if FileExist("version_local.txt") {
-    FileRead, currentVersion, version_local.txt
-    currentVersion := Trim(currentVersion)
-} else {
-    currentVersion := "1.0.11"  ; Версия по умолчанию, если файла нет
-}
-
-; Ссылки на GitHub
-githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
-githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/Admin.ahk"
-
-; Функция для проверки обновлений
-CheckForUpdates() {
-    global currentVersion, githubVersionURL, githubScriptURL
-
-    ; Загружаем версию с GitHub
-    whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-    whr.Open("GET", githubVersionURL, true)
-    whr.Send()
-    whr.WaitForResponse()
-    serverVersion := whr.ResponseText
-
-    ; Убираем лишние символы (например, переносы строк)
-    serverVersion := Trim(serverVersion)
-
-    ; Сравниваем версии
-    if (serverVersion != currentVersion) {
-        MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
-        IfMsgBox, No
-            return
-
-        ; Загружаем новый скрипт
-        whr.Open("GET", githubScriptURL, true)
-        whr.Send()
-        whr.WaitForResponse()
-        newScript := whr.ResponseText
-
-        ; Сохраняем новый скрипт
-        scriptPath := A_ScriptFullPath  ; Полный путь к текущему скрипту
-        FileDelete, %scriptPath%  ; Удаляем старый скрипт
-        FileAppend, %newScript%, %scriptPath%  ; Сохраняем новый скрипт
-
-        ; Обновляем текущую версию
-        currentVersion := serverVersion
-
-        ; Сохраняем новую версию в файл
-        FileDelete, version_local.txt
-        FileAppend, %currentVersion%, version_local.txt
-
-        MsgBox, 64, Успех, Скрипт успешно обновлен. Перезапустите скрипт.
-        ExitApp  ; Завершаем текущий скрипт
-    } else {
-        MsgBox, 64, Информация, У вас актуальная версия скрипта.
-    }
-}
-
-; Проверка обновлений при запуске
-CheckForUpdates()
-
-; Двойное нажатие на AHK
-~LButton::
-    if (A_PriorHotkey = "~LButton" && A_TimeSincePriorHotkey < 400) {
-        if (currentVersion != "1.0.11") {  ; Замените на актуальную версию
-            CheckForUpdates()
-        } else {
-            Gui, Show,, Меню команд
-        }
-    }
-return
-
-; Запуск скрипта с правами администратора
-if not A_IsAdmin
-{
-    Run *RunAs "%A_ScriptFullPath%"  ; *RunAs запрашивает права администратора
-    ExitApp  ; Завершаем текущий экземпляр скрипта
-}
-
-; Остальной код GUI и команд остается без изменений
-; ...
-
-; Показываем GUI при запуске
-Gui, Show,, Меню команд
-return
-
-GuiClose:
-ExitApp
-
 
 ; ------------------------------- БИНД КЛАВИШ NUMPAD (ОСНОВНОЕ)-------------------------------
 
@@ -392,6 +270,252 @@ Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_
 
 
 ------------------------------------АДМИН ТЭГ------------------------------------
+; Проверяем, запущен ли скрипт с правами администратора
+if not A_IsAdmin
+{
+    ; Если нет, перезапускаем скрипт с правами администратора
+    Run *RunAs "%A_ScriptFullPath%"  ; *RunAs запрашивает права администратора
+    ExitApp  ; Завершаем текущий экземпляр скрипта
+}
+
+; Путь к папке в Program Files
+folderPath := "C:\Program Files\AdminHelper"
+iniFile := folderPath "\tag_settings.ini"
+
+; Функция для проверки и создания папки, если её нет
+EnsureFolderExists() {
+    global folderPath
+    if !FileExist(folderPath)
+    {
+        ; Пытаемся создать папку
+        FileCreateDir, %folderPath%
+        if ErrorLevel
+        {
+            MsgBox, 16, Ошибка, Не удалось создать папку: %folderPath%
+            return false
+        }
+        else
+        {
+            MsgBox, 64, Успех, Папка успешно создана: %folderPath%
+            return true
+        }
+    }
+    return true
+}
+
+; Проверяем и создаем папку при запуске
+if !EnsureFolderExists()
+{
+    ExitApp  ; Завершаем скрипт, если папку не удалось создать
+}
+
+; кнопка in main menu
+Gui 1:Tab, 1
+Gui 1:Font, s12 cFD7B7C Bold Arial
+Gui 1:Add, Button, x640 y10 w150 h30 gOpenTagMenu BackgroundColor=cWhite TextColor=cFD7B7C, Изменение тега
+
+;аплоуд тега в скрипт
+if FileExist(iniFile) {
+    IniRead, SavedTag, %iniFile%, Settings, Tag  ; читаем тег из файла
+    if (SavedTag = "ERROR" || SavedTag = "") {  ; если тег пустой или файл поврежден
+        MsgBox, Ошибка: Тег не найден или файл поврежден. Пожалуйста, введите новый тег.
+        SavedTag := ""  ; оставляет тег пустым
+    }
+} else {
+    SavedTag := ""  ; Если файла нет, оставляем тег пустым
+}
+
+; создание гуи для ввода тега
+Gui 3:Font, s12
+Gui 3:Add, Edit, vNewTagInput w200 BackgroundColor=White TextColor=Black, %SavedTag%  ; поле для ввода нового тега
+Gui 3:Add, Button, gSaveTag, save
+Gui 3:Add, Button, gCloseTagGUI, close
+
+; основной гуи (Gui 2)
+Gui 2:Font, s14 Bold Arial
+Gui 2:Color, c202127
+Gui 2:Add, Edit, vCurrentTag w200 x100 y50 Center, %SavedTag%
+Gui 2:Font, s11 Bold Arial
+Gui 2:Add, Text, x160 y30 w120 h15 cWhite, Новый тег:
+Gui 2:Font, s14 c202127
+Gui 2:Add, Button, x140 y120 w120 h40 gButtonReset, Reset
+Gui 2:Add, Button, x10 y120 w120 h40 gButtonSave, Save
+Gui 2:Add, Button, x270 y120 w120 h40 gButtonCancel, Close
+
+; Показываем основной GUI (Gui 2)
+Gui 2:Hide
+
+; Запускаем таймер для проверки тега каждые 30 секунд
+SetTimer, CheckTag, 30000  ; 30000 мс = 30 секунд
+return
+
+; Таймер для проверки наличия тега
+CheckTag:
+if !FileExist(iniFile) || (SavedTag = "") {  ; Если файла нет или тег пустой
+    ; Закрываем предыдущее окно ошибки (если оно есть)
+    WinClose, Ошибка ahk_class #32770  ; Закрываем окно с заголовком "Ошибка"
+    ; Показываем новое сообщение об ошибке
+    MsgBox, 16, Ошибка, Тег не задан! Пожалуйста, введите тег.
+}
+return
+
+; Обработчик кнопки "Сохранить" в GUI 3 (для тега)
+SaveTag:
+Gui 3:Submit, NoHide  ; Сохраняем введенные данные без закрытия GUI
+if (NewTagInput = "") {
+    MsgBox, Ошибка: Тег не может быть пустым!
+    return
+}
+
+; Проверяем, существует ли папка, и создаем её, если нет
+if !EnsureFolderExists()
+{
+    return
+}
+
+; Сохраняем тег в файл
+IniWrite, %NewTagInput%, %iniFile%, Settings, Tag
+if ErrorLevel {
+    MsgBox, Ошибка при сохранении тега!
+    return
+}
+MsgBox, Новый тег сохранен: %NewTagInput%
+SavedTag := NewTagInput  ; Обновляем переменную SavedTag
+GuiControl, 2:, CurrentTag, %NewTagInput%  ; Обновляем поле в GUI 2
+return
+
+; Обработчик кнопки "Закрыть" в GUI 3
+CloseTagGUI:
+Gui 3:Hide  ; Скрываем GUI 3
+return
+
+; Обработчик кнопки "Сбросить" в GUI 2
+ButtonReset:
+MsgBox, 4,, Вы уверены, что хотите сбросить тег?
+IfMsgBox, No
+    return
+GuiControl, 2:, CurrentTag,  ; Очищаем поле ввода
+
+; Проверяем, существует ли папка, и создаем её, если нет
+if !EnsureFolderExists()
+{
+    return
+}
+
+IniDelete, %iniFile%, Settings, Tag  ; Удаляем тег из файла
+SavedTag := ""  ; Очищаем переменную SavedTag
+MsgBox, Тег сброшен.
+return
+
+; Обработчик кнопки "Сохранить" в GUI 2
+ButtonSave:
+Gui 2:Submit, NoHide
+GuiControlGet, CurrentTag,, CurrentTag
+if (CurrentTag = "") {
+    MsgBox, Ошибка: Тег не может быть пустым!
+    return
+}
+
+; Проверяем, существует ли папка, и создаем её, если нет
+if !EnsureFolderExists()
+{
+    return
+}
+
+IniWrite, %CurrentTag%, %iniFile%, Settings, Tag  ; Сохраняем тег в файл
+if ErrorLevel {
+    MsgBox, Ошибка при сохранении тега!
+    return
+}
+SavedTag := CurrentTag  ; Обновляем переменную SavedTag
+MsgBox, Тег сохранен: %CurrentTag%
+return
+
+; Обработчик кнопки для открытия меню изменения тега
+OpenTagMenu:
+Gui 2:Show, w400 h170, Admin tag
+return
+
+; Обработчик кнопки "Закрыть" в GUI 2
+ButtonCancel:
+Gui 1:-Disabled
+Gui 2:Cancel
+return
+
+; Горячая клавиша для открытия GUI 3 (управление тегом)
+^!t::  ; Ctrl+Alt+T для открытия GUI 3
+Gui 3:Show,, Настройка тега
+return
+
+------------------------------------АДМИН ТЭГ------------------------------------
+
+
+
+#SingleInstance Force
+
+; Путь к текущему скрипту
+scriptPath := A_ScriptFullPath
+scriptDir := A_ScriptDir
+scriptName := A_ScriptName
+
+; Локальная версия
+currentVersion := "1.0.0"  ; Укажите текущую версию скрипта
+
+; Ссылки на GitHub
+githubVersionURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/version.txt"
+githubScriptURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/yourscript.ahk"
+
+; Функция для проверки обновлений
+CheckForUpdates() {
+    global currentVersion, githubVersionURL, githubScriptURL, scriptPath, scriptDir, scriptName
+
+    ; Загружаем версию с GitHub
+    whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+    whr.Open("GET", githubVersionURL, true)
+    whr.Send()
+    whr.WaitForResponse()
+    serverVersion := whr.ResponseText
+
+    ; Убираем лишние символы (например, переносы строк)
+    serverVersion := Trim(serverVersion)
+
+    ; Сравниваем версии
+    if (serverVersion != currentVersion) {
+        MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
+        IfMsgBox, No
+            return
+
+        ; Загружаем новый скрипт
+        whr.Open("GET", githubScriptURL, true)
+        whr.Send()
+        whr.WaitForResponse()
+        newScript := whr.ResponseText
+
+        ; Переименовываем старый скрипт
+        oldScriptPath := scriptDir "\" RegExReplace(scriptName, "\.ahk$", "") " (old).ahk"
+        FileMove, %scriptPath%, %oldScriptPath%
+
+        ; Сохраняем новый скрипт
+        FileAppend, %newScript%, %scriptPath%
+
+        ; Обновляем текущую версию
+        currentVersion := serverVersion
+
+        MsgBox, 64, Успех, Скрипт успешно обновлен. Перезапустите скрипт.
+        ExitApp  ; Завершаем текущий скрипт
+    } else {
+        MsgBox, 64, Информация, У вас актуальная версия скрипта.
+    }
+}
+
+; Проверка обновлений при запуске
+CheckForUpdates()
+
+; Основной код скрипта
+MsgBox, Скрипт запущен и работает!
+return
+
+
 
 numpad0::
 SendMessage, 0x50,, 0x4190419,, A
