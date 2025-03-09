@@ -27,7 +27,7 @@ scriptDir := A_ScriptDir
 scriptName := A_ScriptName
 
 ; Локальная версия
-currentVersion := "1.0.7"  ; Укажите текущую версию скрипта
+currentVersion := "1.2.0"  ; Укажите текущую версию скрипта
 
 ; Ссылки на GitHub
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
@@ -1823,4 +1823,4 @@ SendPlay {esc}
 return
 
 ; АРБУЗ АРБУЗ
-1.0.7
+; НЕ АРБУЗ АРБУЗ
