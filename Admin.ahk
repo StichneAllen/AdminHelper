@@ -1,4 +1,6 @@
 #SingleInstance Force
+
+; Проверка на UIA
 CheckUIA()
 {
     if (!A_IsCompiled && !InStr(A_AhkPath, "_UIA")) {
@@ -7,15 +9,107 @@ CheckUIA()
     }
 }
 CheckUIA()
-Gui, Color, 212121
-Gui 1:Show, center h600 w800, AdminHelper v1.1.4.1
 
-; ------------------------------- БИНД КЛАВИШ NUMPAD (ОСНОВНОЕ)-------------------------------
+; Проверка прав администратора
+if not A_IsAdmin
+{
+    Run *RunAs "%A_ScriptFullPath%"  ; *RunAs запрашивает права администратора
+    ExitApp  ; Завершаем текущий экземпляр скрипта
+}
 
+; Путь к текущему скрипту
+scriptPath := A_ScriptFullPath
+scriptDir := A_ScriptDir
+scriptName := A_ScriptName
+
+; Локальная версия
+currentVersion := "1.0.0"  ; Укажите текущую версию скрипта
+
+; Ссылки на GitHub
+githubVersionURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/version.txt"
+githubScriptURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/yourscript.ahk"
+
+; Функция для проверки обновлений
+CheckForUpdates() {
+    global currentVersion, githubVersionURL, githubScriptURL, scriptPath, scriptDir, scriptName
+
+    ; Загружаем версию с GitHub
+    whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+    whr.Open("GET", githubVersionURL, true)
+    whr.Send()
+    whr.WaitForResponse()
+    serverVersion := whr.ResponseText
+
+    ; Убираем лишние символы (например, переносы строк)
+    serverVersion := Trim(serverVersion)
+
+    ; Сравниваем версии
+    if (serverVersion != currentVersion) {
+        MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
+        IfMsgBox, No
+            return
+
+        ; Загружаем новый скрипт
+        whr.Open("GET", githubScriptURL, true)
+        whr.Send()
+        whr.WaitForResponse()
+        newScript := whr.ResponseText
+
+        ; Переименовываем старый скрипт
+        oldScriptPath := scriptDir "\" RegExReplace(scriptName, "\.ahk$", "") " (old).ahk"
+        FileMove, %scriptPath%, %oldScriptPath%
+
+        ; Сохраняем новый скрипт
+        FileAppend, %newScript%, %scriptPath%
+
+        ; Обновляем текущую версию
+        currentVersion := serverVersion
+
+        MsgBox, 64, Успех, Скрипт успешно обновлен. Перезапустите скрипт.
+        ExitApp  ; Завершаем текущий скрипт
+    } else {
+        MsgBox, 64, Информация, У вас актуальная версия скрипта.
+    }
+}
+
+; Проверка обновлений при запуске
+CheckForUpdates()
+
+; Путь к папке в Program Files
+folderPath := "C:\Program Files\AdminHelper"
+iniFile := folderPath "\tag_settings.ini"
+
+; Функция для проверки и создания папки, если её нет
+EnsureFolderExists() {
+    global folderPath
+    if !FileExist(folderPath)
+    {
+        ; Пытаемся создать папку
+        FileCreateDir, %folderPath%
+        if ErrorLevel
+        {
+            MsgBox, 16, Ошибка, Не удалось создать папку: %folderPath%
+            return false
+        }
+        else
+        {
+            MsgBox, 64, Успех, Папка успешно создана: %folderPath%
+            return true
+        }
+    }
+    return true
+}
+
+; Проверяем и создаем папку при запуске
+if !EnsureFolderExists()
+{
+    ExitApp  ; Завершаем скрипт, если папку не удалось создать
+}
+
+; Основной GUI
+Gui, Color, 212121 
 Gui 1:Font, s12 c000000 Bold, Arial
 Gui 1:Add, Tab2, x9 y10 h40 w450 Buttons -Wrap c9FFC69, Основное|GPS|Телепорты [3+]|Другое
-;Gui 1:Font, s16 c000000 Black, Arial
-;Gui, Add, Text, x430 y10 h40 w400 h25 cred, НЕ ЗАБУДЬ ПОМЕНЯТЬ СВОЙ ТЭГ!
 Gui 1:Font, s11 c000000 Bold, Arial
 Gui 1:Add, GroupBox, x10 y40 w350 h205 c9FFC69, [ keys ]
 Gui 1:Font, s8 cWhite Bold, Arial
@@ -270,52 +364,14 @@ Gui, Font, S8 c747474, Regular, Arial,
 Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_McKenzy
 
 
+
 ------------------------------------АДМИН ТЭГ------------------------------------
-; Проверяем, запущен ли скрипт с правами администратора
-if not A_IsAdmin
-{
-    ; Если нет, перезапускаем скрипт с правами администратора
-    Run *RunAs "%A_ScriptFullPath%"  ; *RunAs запрашивает права администратора
-    ExitApp  ; Завершаем текущий экземпляр скрипта
-}
-
-; Путь к папке в Program Files
-folderPath := "C:\Program Files\AdminHelper"
-iniFile := folderPath "\tag_settings.ini"
-
-; Функция для проверки и создания папки, если её нет
-EnsureFolderExists() {
-    global folderPath
-    if !FileExist(folderPath)
-    {
-        ; Пытаемся создать папку
-        FileCreateDir, %folderPath%
-        if ErrorLevel
-        {
-            MsgBox, 16, Ошибка, Не удалось создать папку: %folderPath%
-            return false
-        }
-        else
-        {
-            MsgBox, 64, Успех, Папка успешно создана: %folderPath%
-            return true
-        }
-    }
-    return true
-}
-
-; Проверяем и создаем папку при запуске
-if !EnsureFolderExists()
-{
-    ExitApp  ; Завершаем скрипт, если папку не удалось создать
-}
-
-; кнопка in main menu
+; Кнопка для изменения тега
 Gui 1:Tab, 1
 Gui 1:Font, s12 cFD7B7C Bold Arial
 Gui 1:Add, Button, x640 y10 w150 h30 gOpenTagMenu BackgroundColor=cWhite TextColor=cFD7B7C, Изменение тега
 
-;аплоуд тега в скрипт
+; Загрузка тега из файла
 if FileExist(iniFile) {
     IniRead, SavedTag, %iniFile%, Settings, Tag  ; читаем тег из файла
     if (SavedTag = "ERROR" || SavedTag = "") {  ; если тег пустой или файл поврежден
@@ -326,13 +382,13 @@ if FileExist(iniFile) {
     SavedTag := ""  ; Если файла нет, оставляем тег пустым
 }
 
-; создание гуи для ввода тега
+; GUI для ввода тега
 Gui 3:Font, s12
 Gui 3:Add, Edit, vNewTagInput w200 BackgroundColor=White TextColor=Black, %SavedTag%  ; поле для ввода нового тега
 Gui 3:Add, Button, gSaveTag, save
 Gui 3:Add, Button, gCloseTagGUI, close
 
-; основной гуи (Gui 2)
+; Основной GUI для тега
 Gui 2:Font, s14 Bold Arial
 Gui 2:Color, c202127
 Gui 2:Add, Edit, vCurrentTag w200 x100 y50 Center, %SavedTag%
@@ -348,6 +404,9 @@ Gui 2:Hide
 
 ; Запускаем таймер для проверки тега каждые 30 секунд
 SetTimer, CheckTag, 30000  ; 30000 мс = 30 секунд
+
+; Основной код скрипта
+Gui, Show,, Меню команд
 return
 
 ; Таймер для проверки наличия тега
@@ -448,69 +507,11 @@ return
 Gui 3:Show,, Настройка тега
 return
 
+GuiClose:
+ExitApp
+
 ------------------------------------АДМИН ТЭГ------------------------------------
 
-; Путь к текущему скрипту
-scriptPath := A_ScriptFullPath
-scriptDir := A_ScriptDir
-scriptName := A_ScriptName
-
-; Локальная версия
-currentVersion := "1.0.8"  ; Укажите текущую версию скрипта
-
-; Ссылки на GitHub
-githubVersionURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/version.txt"
-githubScriptURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/yourscript.ahk"
-
-; Функция для проверки обновлений
-CheckForUpdates() {
-    global currentVersion, githubVersionURL, githubScriptURL, scriptPath, scriptDir, scriptName
-
-    ; Загружаем версию с GitHub
-    whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-    whr.Open("GET", githubVersionURL, true)
-    whr.Send()
-    whr.WaitForResponse()
-    serverVersion := whr.ResponseText
-
-    ; Убираем лишние символы (например, переносы строк)
-    serverVersion := Trim(serverVersion)
-
-    ; Сравниваем версии
-    if (serverVersion != currentVersion) {
-        MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
-        IfMsgBox, No
-            return
-
-        ; Загружаем новый скрипт
-        whr.Open("GET", githubScriptURL, true)
-        whr.Send()
-        whr.WaitForResponse()
-        newScript := whr.ResponseText
-
-        ; Переименовываем старый скрипт
-        oldScriptPath := scriptDir "\" RegExReplace(scriptName, "\.ahk$", "") " (old).ahk"
-        FileMove, %scriptPath%, %oldScriptPath%
-
-        ; Сохраняем новый скрипт
-        FileAppend, %newScript%, %scriptPath%
-
-        ; Обновляем текущую версию
-        currentVersion := serverVersion
-
-        MsgBox, 64, Успех, Скрипт успешно обновлен. Перезапустите скрипт.
-        ExitApp  ; Завершаем текущий скрипт
-    } else {
-        MsgBox, 64, Информация, У вас актуальная версия скрипта.
-    }
-}
-
-; Проверка обновлений при запуске
-CheckForUpdates()
-
-; Основной код скрипта
-MsgBox, Скрипт запущен и работает!
-return
 
 numpad0::
 SendMessage, 0x50,, 0x4190419,, A
