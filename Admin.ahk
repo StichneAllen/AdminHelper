@@ -10,7 +10,7 @@ CheckUIA()
 CheckUIA()
 
 ; Текущая версия скрипта
-currentVersion := "1.0.0"
+currentVersion := "1.0.1"
 
 ; Ссылки на GitHub
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
@@ -1805,3 +1805,6 @@ SendEvent {Click, 670, 878, 2, right}
 sleep 222
 SendPlay {esc}
 return
+
+
+; АРБУЗ АРБУЗ
