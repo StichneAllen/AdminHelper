@@ -27,11 +27,11 @@ scriptDir := A_ScriptDir
 scriptName := A_ScriptName
 
 ; Локальная версия
-currentVersion := "1.2.0"  ; Укажите текущую версию скрипта
+currentVersion := "1.2.1"  ; Укажите текущую версию скрипта
 
 ; Ссылки на GitHub
-githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
-githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/Admin.ahk"
+githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
+githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
 
 ; Функция для проверки обновлений
 CheckForUpdates() {
