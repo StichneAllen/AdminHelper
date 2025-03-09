@@ -270,6 +270,70 @@ Gui, Font, S8 c747474, Regular, Arial,
 Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_McKenzy
 
 
+
+; Путь к текущему скрипту
+scriptPath := A_ScriptFullPath
+scriptDir := A_ScriptDir
+scriptName := A_ScriptName
+
+; Локальная версия
+currentVersion := "1.0.9"  ; Укажите текущую версию скрипта
+
+; Ссылки на GitHub
+githubVersionURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/version.txt"
+githubScriptURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/yourscript.ahk"
+
+; Функция для проверки обновлений
+CheckForUpdates() {
+    global currentVersion, githubVersionURL, githubScriptURL, scriptPath, scriptDir, scriptName
+
+    ; Загружаем версию с GitHub
+    whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+    whr.Open("GET", githubVersionURL, true)
+    whr.Send()
+    whr.WaitForResponse()
+    serverVersion := whr.ResponseText
+
+    ; Убираем лишние символы (например, переносы строк)
+    serverVersion := Trim(serverVersion)
+
+    ; Сравниваем версии
+    if (serverVersion != currentVersion) {
+        MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
+        IfMsgBox, No
+            return
+
+        ; Загружаем новый скрипт
+        whr.Open("GET", githubScriptURL, true)
+        whr.Send()
+        whr.WaitForResponse()
+        newScript := whr.ResponseText
+
+        ; Переименовываем старый скрипт
+        oldScriptPath := scriptDir "\" RegExReplace(scriptName, "\.ahk$", "") " (old).ahk"
+        FileMove, %scriptPath%, %oldScriptPath%
+
+        ; Сохраняем новый скрипт
+        FileAppend, %newScript%, %scriptPath%
+
+        ; Обновляем текущую версию
+        currentVersion := serverVersion
+
+        MsgBox, 64, Успех, Скрипт успешно обновлен. Перезапустите скрипт.
+        ExitApp  ; Завершаем текущий скрипт
+    } else {
+        MsgBox, 64, Информация, У вас актуальная версия скрипта.
+    }
+}
+
+; Проверка обновлений при запуске
+CheckForUpdates()
+
+; Основной код скрипта
+MsgBox, Скрипт запущен и работает!
+return
+
+
 ------------------------------------АДМИН ТЭГ------------------------------------
 ; Проверяем, запущен ли скрипт с правами администратора
 if not A_IsAdmin
@@ -449,72 +513,6 @@ Gui 3:Show,, Настройка тега
 return
 
 ------------------------------------АДМИН ТЭГ------------------------------------
-
-
-
-#SingleInstance Force
-
-; Путь к текущему скрипту
-scriptPath := A_ScriptFullPath
-scriptDir := A_ScriptDir
-scriptName := A_ScriptName
-
-; Локальная версия
-currentVersion := "1.0.6"  ; Укажите текущую версию скрипта
-
-; Ссылки на GitHub
-githubVersionURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/version.txt"
-githubScriptURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/yourscript.ahk"
-
-; Функция для проверки обновлений
-CheckForUpdates() {
-    global currentVersion, githubVersionURL, githubScriptURL, scriptPath, scriptDir, scriptName
-
-    ; Загружаем версию с GitHub
-    whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-    whr.Open("GET", githubVersionURL, true)
-    whr.Send()
-    whr.WaitForResponse()
-    serverVersion := whr.ResponseText
-
-    ; Убираем лишние символы (например, переносы строк)
-    serverVersion := Trim(serverVersion)
-
-    ; Сравниваем версии
-    if (serverVersion != currentVersion) {
-        MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
-        IfMsgBox, No
-            return
-
-        ; Загружаем новый скрипт
-        whr.Open("GET", githubScriptURL, true)
-        whr.Send()
-        whr.WaitForResponse()
-        newScript := whr.ResponseText
-
-        ; Переименовываем старый скрипт
-        oldScriptPath := scriptDir "\" RegExReplace(scriptName, "\.ahk$", "") " (old).ahk"
-        FileMove, %scriptPath%, %oldScriptPath%
-
-        ; Сохраняем новый скрипт
-        FileAppend, %newScript%, %scriptPath%
-
-        ; Обновляем текущую версию
-        currentVersion := serverVersion
-
-        MsgBox, 64, Успех, Скрипт успешно обновлен. Перезапустите скрипт.
-        ExitApp  ; Завершаем текущий скрипт
-    } else {
-        MsgBox, 64, Информация, У вас актуальная версия скрипта.
-    }
-}
-
-; Проверка обновлений при запуске
-CheckForUpdates()
-
-; Основной код скрипта
-MsgBox, Скрипт запущен и работает!
-return
 
 
 
