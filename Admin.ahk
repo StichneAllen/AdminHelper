@@ -17,19 +17,8 @@ if not A_IsAdmin
     ExitApp  ; Завершаем текущий экземпляр скрипта
 }
 
-; Путь к текущему скрипту
-scriptPath := A_ScriptFullPath
-scriptDir := A_ScriptDir
-scriptName := A_ScriptName
+;________________________________________________________________________________________________________________________________________________________________________________________
 
-; Локальная версия
-currentVersion := "1.0.9"  ; Укажите текущую версию скрипта
-
-; Ссылки на GitHub
-githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
-githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
-
-; Функция для проверки обновлений
 CheckForUpdates() {
     global currentVersion, githubVersionURL, githubScriptURL, scriptPath, scriptDir, scriptName
 
@@ -38,10 +27,26 @@ CheckForUpdates() {
     whr.Open("GET", githubVersionURL, true)
     whr.Send()
     whr.WaitForResponse()
-    serverVersion := whr.ResponseText
 
-    ; Убираем лишние символы (например, переносы строк)
-    serverVersion := Trim(serverVersion)
+    ; Проверяем статус ответа
+    status := whr.Status
+    if (status != 200) {
+        MsgBox, 16, Ошибка, Не удалось получить версию с сервера. Код статуса: %status%
+        return
+    }
+
+    ; Убираем все лишние символы (пробелы, переносы строк и т.д.)
+    serverVersion := Trim(whr.ResponseText)
+    serverVersion := RegExReplace(serverVersion, "[\r\n]+", "")  ; Удаляем переносы строк
+    serverVersion := RegExReplace(serverVersion, "\s+", "")     ; Удаляем все пробелы
+
+    ; Убираем лишние символы из локальной версии
+    currentVersion := Trim(currentVersion)
+    currentVersion := RegExReplace(currentVersion, "[\r\n]+", "")
+    currentVersion := RegExReplace(currentVersion, "\s+", "")
+
+    ; Отладочный вывод (можно удалить после проверки)
+    MsgBox, 64, Информация, Локальная версия: "%currentVersion%"`nСерверная версия: "%serverVersion%"
 
     ; Сравниваем версии
     if (serverVersion != currentVersion) {
@@ -53,6 +58,14 @@ CheckForUpdates() {
         whr.Open("GET", githubScriptURL, true)
         whr.Send()
         whr.WaitForResponse()
+
+        ; Проверяем статус ответа
+        status := whr.Status
+        if (status != 200) {
+            MsgBox, 16, Ошибка, Не удалось загрузить новый скрипт. Код статуса: %status%
+            return
+        }
+
         newScript := whr.ResponseText
 
         ; Переименовываем старый скрипт
@@ -71,9 +84,7 @@ CheckForUpdates() {
         MsgBox, 64, Информация, У вас актуальная версия скрипта.
     }
 }
-
-; Проверка обновлений при запуске
-CheckForUpdates()
+;________________________________________________________________________________________________________________________________________________________________________________________
 
 ; Путь к папке в Program Files
 folderPath := "C:\Program Files\AdminHelper"
