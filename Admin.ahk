@@ -27,7 +27,7 @@ scriptDir := A_ScriptDir
 scriptName := A_ScriptName
 
 ; Локальная версия
-currentVersion := "1.1.1"  ; Укажите текущую версию скрипта
+currentVersion := "1.1.2"  ; Укажите текущую версию скрипта
 
 ; Ссылки на GitHub
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
