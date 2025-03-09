@@ -19,6 +19,21 @@ if not A_IsAdmin
 
 ;________________________________________________________________________________________________________________________________________________________________________________________
 
+#SingleInstance Force
+
+; Путь к текущему скрипту
+scriptPath := A_ScriptFullPath
+scriptDir := A_ScriptDir
+scriptName := A_ScriptName
+
+; Локальная версия
+currentVersion := "1.1.1"  ; Укажите текущую версию скрипта
+
+; Ссылки на GitHub
+githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/version.txt"
+githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/main/Admin.ahk"
+
+; Функция для проверки обновлений
 CheckForUpdates() {
     global currentVersion, githubVersionURL, githubScriptURL, scriptPath, scriptDir, scriptName
 
@@ -44,9 +59,6 @@ CheckForUpdates() {
     currentVersion := Trim(currentVersion)
     currentVersion := RegExReplace(currentVersion, "[\r\n]+", "")
     currentVersion := RegExReplace(currentVersion, "\s+", "")
-
-    ; Отладочный вывод (можно удалить после проверки)
-    MsgBox, 64, Информация, Локальная версия: "%currentVersion%"`nСерверная версия: "%serverVersion%"
 
     ; Сравниваем версии
     if (serverVersion != currentVersion) {
@@ -80,10 +92,12 @@ CheckForUpdates() {
 
         MsgBox, 64, Успех, Скрипт успешно обновлен. Перезапустите скрипт.
         ExitApp  ; Завершаем текущий скрипт
-    } else {
-        MsgBox, 64, Информация, У вас актуальная версия скрипта.
     }
 }
+
+; Проверка обновлений при запуске
+CheckForUpdates()
+
 ;________________________________________________________________________________________________________________________________________________________________________________________
 
 ; Путь к папке в Program Files
@@ -1807,3 +1821,5 @@ SendEvent {Click, 670, 878, 2, right}
 sleep 222
 SendPlay {esc}
 return
+
+; АРБУЗ АРБУЗ
