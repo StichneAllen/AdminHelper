@@ -23,11 +23,11 @@ scriptDir := A_ScriptDir
 scriptName := A_ScriptName
 
 ; Локальная версия
-currentVersion := "1.1.1"  ; Укажите текущую версию скрипта
+currentVersion := "1.0.9"  ; Укажите текущую версию скрипта
 
 ; Ссылки на GitHub
-githubVersionURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/version.txt"
-githubScriptURL := "https://raw.githubusercontent.com/yourusername/yourrepo/main/yourscript.ahk"
+githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
+githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
 
 ; Функция для проверки обновлений
 CheckForUpdates() {
@@ -406,7 +406,7 @@ Gui 2:Hide
 SetTimer, CheckTag, 30000  ; 30000 мс = 30 секунд
 
 ; Основной код скрипта
-Gui, Show,, Меню команд
+Gui 1:Show, center h600 w800, AdminHelper
 return
 
 ; Таймер для проверки наличия тега
@@ -507,8 +507,10 @@ return
 Gui 3:Show,, Настройка тега
 return
 
-GuiClose:
-ExitApp
+
+;Закрыть скрипт на крестик
+;GuiClose:
+;ExitApp
 
 ------------------------------------АДМИН ТЭГ------------------------------------
 
