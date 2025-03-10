@@ -1822,5 +1822,3 @@ SendEvent {Click, 670, 878, 2, right}
 sleep 222
 SendPlay {esc}
 return
-Е/a ВНИМАНИЕ! Занимаю админ новости! 
-Е/p Уважаемые игроки! 
