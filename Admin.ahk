@@ -27,7 +27,7 @@ scriptDir := A_ScriptDir
 scriptName := A_ScriptName
 
 ; Локальная версия
-currentVersion := "1.2.1"  ; Укажите текущую версию скрипта
+currentVersion := "1.3.0"  ; Укажите текущую версию скрипта
 
 ; Ссылки на GitHub
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
@@ -159,35 +159,36 @@ Gui 1:Font, s11 cWhite Bold, Arial
 Gui, Add, Text, x2 x380 y60 w400 h15 c9FFC69, Все блокировки по нику.
 Gui, Add, Text, x2 x380 y75 w400 h20 c9FFC69, Данные команды исключительно в F8 ! ! !
 Gui 1:Font, s8 cWhite Bold, Arial
-Gui, Add, Text, x2 x380 y95 w395 h15 , /бх - BH при погоне [1 дн.]
-Gui, Add, Text, x2 x380 y110 w395 h15 , /выходрп - Off от РП [7 дн.]
-Gui, Add, Text, x2 x380 y125 w395 h15 , /вх - WH [3 ч.]
-Gui, Add, Text, x2 x380 y140 w395 h15 , /дмигрока - DM игрока [1.5 дн.]
-Gui, Add, Text, x2 x380 y155 w395 h15 , /дмкар - DM car [1.5 дн.]
-Gui, Add, Text, x2 x380 y170 w395 h15 , /дмкил - DM kill [2.5 дн.]
-Gui, Add, Text, x2 x380 y185 w395 h15 , /дб - DB [3 дн.]
-Gui, Add, Text, x2 x380 y200 w395 h15 , /пг - PG [2.5 дн.]
-Gui, Add, Text, x2 x380 y215 w395 h15 , /подрезы - Созд. аварийных ситуаций [1.5 дн.]
-Gui, Add, Text, x2 x380 y230 w395 h15 , /погоняепт - Езда по газонам/тротуарам при погоне [2.5 дн.]
-Gui, Add, Text, x2 x380 y245 w395 h15 , /погоняепп - Езда по полю при погоне [2.5 дн.]
-Gui, Add, Text, x2 x380 y260 w395 h15 , /политпров - Полит. провокация [30 дн.]
-Gui, Add, Text, x2 x380 y275 w395 h15 , /погонявело - Погоня на велосипеде [1 дн.]
-Gui, Add, Text, x2 x380 y290 w395 h15 , /оскпроекта - Оск. проекта [30 дн.]
-Gui, Add, Text, x2 x380 y305 w395 h15 , /оскрод - Оск. родных [30 дн.]
-Gui, Add, Text, x2 x380 y320 w395 h15 , /оскадм - Оск. администрации [3 дн.]
-Gui, Add, Text, x2 x380 y335 w395 h15 , /тк - TK [1.5 дн.]
-Gui, Add, Text, x2 x380 y350 w395 h15 , /таран - Таран авто [3 дн.]
-Gui, Add, Text, x2 x380 y365 w395 h15 , /упомрод - Упом. родных [15 дн.]
-Gui, Add, Text, x2 x380 y380 w395 h15 , /уходрп - Уход от рп [3 дн.]
-Gui, Add, Text, x2 x380 y395 w395 h15 , /шантаж - Шантаж и вымогательства [30 дн.]
-Gui, Add, Text, x2 x380 y410 w395 h15 , /нацизм - Нацизм/расизм [30 дн.]
-Gui, Add, Text, x2 x380 y425 w395 h15 , /ртлц - Рабочий транспорт в ЛЦ [1 дн.]
-Gui, Add, Text, x2 x380 y440 w395 h15 , /банбагоюз - Мелкий багоюз [5 дн.]
-Gui, Add, Text, x2 x380 y455 w395 h15 , /нонрп - NonRP [2 дн.]
-Gui, Add, Text, x2 x380 y470 w395 h15 , /вилка - Вилка в клаве [1 дн.]
-Gui, Add, Text, x2 x380 y485 w395 h15 , /рекламачит - Реклама сторонних рес. [перм.]
-Gui, Add, Text, x2 x380 y500 w395 h15 , /чит - Читы [перм.]
-Gui, Add, Text, x2 x380 y515 w395 h15 , /ботраб - Бот для работы [перм.]
+Gui, Add, Text, x2 x380 y95 w395 h15 , /бх - BH при погоне
+Gui, Add, Text, x2 x380 y110 w395 h15 , /выходрп - Off от РП
+Gui, Add, Text, x2 x380 y125 w395 h15 , /вх - WH
+Gui, Add, Text, x2 x380 y140 w395 h15 , /дмигрока - DM игрока
+Gui, Add, Text, x2 x380 y155 w395 h15 , /дмкар - DM car
+Gui, Add, Text, x2 x380 y170 w395 h15 , /дмкил - DM kill
+Gui, Add, Text, x2 x380 y185 w395 h15 , /дб - DB
+Gui, Add, Text, x2 x380 y200 w395 h15 , /пг - PG
+Gui, Add, Text, x2 x380 y215 w395 h15 , /подрез - Созд. аварийных ситуаций
+Gui, Add, Text, x2 x380 y230 w395 h15 , /погоняепт - Езда по газонам/тротуарам при погоне
+Gui, Add, Text, x2 x380 y245 w395 h15 , /погоняепп - Езда по полю при погоне
+Gui, Add, Text, x2 x380 y260 w395 h15 , /политпров - Полит. провокация
+Gui, Add, Text, x2 x380 y275 w395 h15 , /погонявело - Погоня на велосипеде
+Gui, Add, Text, x2 x380 y290 w395 h15 , /оскпроекта - Оск. проекта
+Gui, Add, Text, x2 x380 y305 w395 h15 , /оскрод - Оск. родных
+Gui, Add, Text, x2 x380 y320 w395 h15 , /оскадм - Оск. администрации
+Gui, Add, Text, x2 x380 y335 w395 h15 , /тк - TK
+Gui, Add, Text, x2 x380 y350 w395 h15 , /таран - Таран авто
+Gui, Add, Text, x2 x380 y365 w395 h15 , /упомрод - Упом. родных
+Gui, Add, Text, x2 x380 y380 w395 h15 , /уходрп - Уход от рп
+Gui, Add, Text, x2 x380 y395 w395 h15 , /шантаж - Шантаж и вымогательства
+Gui, Add, Text, x2 x380 y410 w395 h15 , /нацизм - Проявление нацизма
+Gui, Add, Text, x2 x380 y425 w395 h15 , /расизм - Проявление расизма
+Gui, Add, Text, x2 x380 y440 w395 h15 , /ртлц - Рабочий транспорт в ЛЦ
+Gui, Add, Text, x2 x380 y455 w395 h15 , /банбагоюз - Мелкий багоюз
+Gui, Add, Text, x2 x380 y470 w395 h15 , /нонрп - NonRP
+Gui, Add, Text, x2 x380 y485 w395 h15 , /вилка - Вилка в клаве
+Gui, Add, Text, x2 x380 y500 w395 h15 , /рекламачит - Реклама сторонних рес.
+Gui, Add, Text, x2 x380 y515 w395 h15 , /чит - Читы
+Gui, Add, Text, x2 x380 y530 w395 h15 , /ботраб - Бот для работы
 Gui, Font, S8 c747474, Regular, Arial,
 Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_McKenzy
 
@@ -196,24 +197,24 @@ Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_
 Gui 1:Font, s11 c000000 Bold, Arial
 Gui 1:Add, GroupBox, x10 y250 w350 h330 c9FFC69, [ ajail | muted | kicked (2 lvl) ]
 Gui 1:Font, s8 cWhite Bold, Arial
-Gui, Add, Text, x20 y270 w330 h15 , /встречка - Встречка [30 м.]
-Gui, Add, Text, x20 y285 w330 h15 , /красные - Красный х2 [30 м.]
-Gui, Add, Text, x20 y300 w330 h15 , /епп - Езда по полю [30 м.]
-Gui, Add, Text, x20 y315 w330 h15 , /епт - Езда по тротуару/газону [30 м.]
-Gui, Add, Text, x20 y330 w330 h15 , /епр - Езда по рельсам [15 м.]
-Gui, Add, Text, x20 y345 w330 h15 , /музыка - Музыка в ГЧ [1 ч.]
-Gui, Add, Text, x20 y360 w330 h15 , /помеха - Афк помеха [kick]
-Gui, Add, Text, x20 y375 w330 h15 , /оффтоп - Offtop in report [1.5 ч.]
-Gui, Add, Text, x20 y390 w330 h15 , /мг - MG [30 м.]
-Gui, Add, Text, x20 y405 w330 h15 , /капс - Caps Lock [30 м.]
-Gui, Add, Text, x20 y420 w330 h15 , /флуд - Flood [1.5 ч.]
-Gui, Add, Text, x20 y435 w330 h15 , /мат - Употребление нецензурных слов [1.5 ч.]
-Gui, Add, Text, x20 y450 w330 h15 , /оскигрока - Оск. игроков [1.5 ч.]
-Gui, Add, Text, x20 y465 w330 h15 , /неувобращение - Неув. обращение в репорт [1.5 ч.]
-Gui, Add, Text, x20 y480 w330 h15 , /безсвета - Без света ОТ [kick]
-Gui, Add, Text, x20 y495 w330 h15 , /пантограф - Торм. пантографом [лишение 14 дн.]
+Gui, Add, Text, x20 y270 w330 h15 , /встречка - Встречка
+Gui, Add, Text, x20 y285 w330 h15 , /красные - Красный х2
+Gui, Add, Text, x20 y300 w330 h15 , /епп - Езда по полю
+Gui, Add, Text, x20 y315 w330 h15 , /епт - Езда по тротуару/газону
+Gui, Add, Text, x20 y330 w330 h15 , /епр - Езда по рельсам
+Gui, Add, Text, x20 y345 w330 h15 , /музыка - Музыка в ГЧ
+Gui, Add, Text, x20 y360 w330 h15 , /помеха - Афк помеха
+Gui, Add, Text, x20 y375 w330 h15 , /оффтоп - Offtop in report
+Gui, Add, Text, x20 y390 w330 h15 , /мг - MG
+Gui, Add, Text, x20 y405 w330 h15 , /капс - Caps Lock
+Gui, Add, Text, x20 y420 w330 h15 , /флуд - Flood
+Gui, Add, Text, x20 y435 w330 h15 , /мат - Употребление нецензурных слов
+Gui, Add, Text, x20 y450 w330 h15 , /оскигрок - Оск. игроков
+Gui, Add, Text, x20 y465 w330 h15 , /неувобр - Неув. обращение в репорт
+Gui, Add, Text, x20 y480 w330 h15 , /безсвета - Без света ОТ
+Gui, Add, Text, x20 y495 w330 h15 , /пантограф - Торм. пантографом
 Gui, Add, Text, x20 y510 w330 h15 , /кикафк - Кик игроков 3+ афк (в хх:х5 (говка))
-Gui, Add, Text, x20 y525 w330 h15 ,
+Gui, Add, Text, x20 y525 w330 h15 , /фармзп - AFK 15+ (фракция)
 Gui, Add, Text, x20 y540 w330 h15 ,
 Gui, Add, Text, x20 y555 w330 h15 ,
 
@@ -893,363 +894,869 @@ SendPlay /p Массовый кик был завершен. Приятной и
 return
 
 :*?:/уходрп::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay, banname  d 3 Уход от РП by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% Уход от РП by %SavedTag%
 return
 
 :*?:/выходрп::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay, banname  d 7 Off от РП by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 7 Off от РП by %SavedTag%
 return
 
 :*?:/банбагоюз::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay, banname  d 5 Багоюз by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% Багоюз by %SavedTag%
 return
 
 :*?:/чит::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 0 Читы by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 0 Читы by %SavedTag%
 return
 
 :*?:/ботраб::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 0 Бот для работы by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 0 Бот для работы by %SavedTag%
 return
 
 :*?:/дмигрока::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 1.5 DM by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% DM by %SavedTag%
 return
 
 :*?:/дб::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 3 DB by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% DB by %SavedTag%
 return
 
 :*?:/вх::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  h 3 WH by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% h 3 WH by %SavedTag%
 return
 
 :*?:/бх::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 1 BH при погоне by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% BH при погоне by %SavedTag%
 return
 
 :*?:/тк::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 1.5 TK by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% TK by %SavedTag%
 return
 
 :*?:/пг::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 2.5 PG by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% PG by %SavedTag%
 return
 
 :*?:/упомрод::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 15 Упом. родных в негативном контексте by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 15 Упом. родных в негативном контексте by %SavedTag%
 return
 
 :*?:/оскрод::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 30 Оск.родных by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 30 Оск.родных by %SavedTag%
 return
 
 :*?:/оскадм::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 3 Оск. администрации by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% Оск. администрации by %SavedTag%
 return
 
 :*?:/политпров::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 30 Политическая провокация by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 30 Политическая провокация by %SavedTag%
 return
 
 :*?:/нацизм::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 30 Проявление нацизма/расизма by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 30 Проявление нацизма by %SavedTag%
+return
+
+:*?:/расизм::
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 30 Проявление расизма by %SavedTag%
 return
 
 :*?:/оскпроекта::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 30 Оск. проекта by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 30 Оск. проекта by %SavedTag%
 return
 
 :*?:/рекламачит::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 0 Реклама сторонних ресурсов by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 0 Реклама сторонних ресурсов by %SavedTag%
 return
 
 :*?:/шантаж::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 30 Шантаж игрока by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 30 Шантаж игрока by %SavedTag%
 return
 
 :*?:/таран::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 3 Таран by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% Таран by %SavedTag%
 return
 
-:*?:/подрезы::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 1.5 Созд. аварийных ситуаций by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+:*?:/подрез::
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% Созд. аварийных ситуаций by %SavedTag%
 return
 
 :*?:/погоняепт::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 2.5 Езда по газонам/тротуарам при погоне by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% Езда по газонам/тротуарам при погоне by %SavedTag%
 return
 
 :*?:/погоняепп::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 2.5 ЕПП при погоне by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% ЕПП при погоне by %SavedTag%
 return
 
 :*?:/ртлц::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 1 Рабочий транспорт в ЛЦ by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% Рабочий транспорт в ЛЦ by %SavedTag%
 return
 
 :*?:/нонрп::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 2 NonRP by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% NonRP by %SavedTag%
 return
 
 :*?:/вилка::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 1 Анти-афк by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d 1 Вилка в клаве by %SavedTag%
 return
 
 :*?:/дмкар::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 1.5 DM car by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% DM car by %SavedTag%
 return
 
 :*?:/дмкил::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 2.5 DM kill by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% DM kill by %SavedTag%
 return
 
 :*?:/погонявело::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay banname  d 1 Погоня на велосипеде by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Nick_Name: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Name, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Days, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname %Name% d %Days% Использование велосипеда при погоне by %SavedTag%
 return
 
 :*?:/епп::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay ajail  30 ЕПП by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ajail %ID% 30 ЕПП by %SavedTag%
 return
 
 :*?:/епт::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay ajail  30 Езда по газонам/тротуарам by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ajail %ID% 30 Езда по газонам/тротуарам by %SavedTag%
 return
 
 :*?:/епр::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay ajail  15 Движение по рельсам by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ajail %ID% 15 Движение по рельсам by %SavedTag%
 return
 
 :*?:/красные::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay ajail  30 Проезд на красный светофор х2 by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ajail %ID% 30 Проезд на красный светофор х2 by %SavedTag%
 return
 
 :*?:/встречка::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay ajail  30 Движение по встречной полосе by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ajail %ID% 30 Движение по встречной полосе by %SavedTag%
 return
 
 :*?:/музыка::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay muted  h 1 music in voice chat by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во часов: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Time, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, muted %ID% h %Time% Музыка в войс by %SavedTag%
 return
 
 :*?:/оффтоп::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay muted  h 1.5 Offtop in report by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во часов: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Time, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, muted %ID% h %Time% Offtop in report by %SavedTag%
 return
 
 :*?:/мг::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay muted  m 30 MG by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во часов: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Time, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, muted %ID% h %Time% MG by %SavedTag%
 return
 
 :*?:/капс::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay muted  m 30 Caps Lock by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во часов: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Time, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, muted %ID% h %Time% Caps Lock by %SavedTag%
 return
 
 :*?:/флуд::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay muted  h 1.5 Flood by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во часов: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Time, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, muted %ID% h %Time% Flood by %SavedTag%
 return
 
 :*?:/мат::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay muted  h 1.5 Употребление нецензурных слов by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во часов: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Time, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, muted %ID% h %Time% Употребление нецензурных слов by %SavedTag%
 return
 
-:*?:/оскигрока::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay muted  h 1.5 Оск. игрока by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+:*?:/оскигрок::
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во часов: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Time, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, muted %ID% h %Time% Оск. игрока by %SavedTag%
 return
 
-:*?:/неувобращение::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay muted  h 1.5 Неув. обращение в репорт by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 6}
+:*?:/неувобр::
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во часов: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, Time, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, muted %ID% h %Time% Неув. обращение в репорт by %SavedTag%
 return
 
 :*?:/помеха::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay kicked  AFK (помеха) by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 7}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, kicked %ID% AFK (помеха) by %SavedTag%
 return
 
 :*?:/безсвета::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay kicked  Движение с выкл. фарами/светом в салоне by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 7}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, kicked %ID% Движение с выкл. фарами/светом в салоне by %SavedTag%
 return
 
 :*?:/пантограф::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay tramoff  Торможение с помощью пантографа by %SavedTag%
-Sleep 100
-SendPlay, {Home}{Right 8}
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, tramoff %ID% Торможение с помощью пантографа by %SavedTag%
+return
+
+:*?:/фармзп::
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, ID: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, ID, V, {Enter}
+    ID := Trim(ID)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Фракция: 
+    Sleep 100
+    SendPlay, {Home}{Right 99}
+    Input, UserInput, V, {Enter}
+    UserInput := Trim(UserInput)
+
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, kicked %ID% Фарм ЗП (%UserInput%) by %SavedTag%
 return
 
 ; ------------------------------- БИНД КЛАВИШ NUMPAD (ОСНОВНОЕ)-------------------------------
