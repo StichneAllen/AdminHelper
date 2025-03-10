@@ -27,7 +27,7 @@ scriptDir := A_ScriptDir
 scriptName := A_ScriptName
 
 ; Локальная версия
-currentVersion := "1.2.0"  ; Укажите текущую версию скрипта
+currentVersion := "1.2.1"  ; Укажите текущую версию скрипта
 
 ; Ссылки на GitHub
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
@@ -603,6 +603,7 @@ return
 !numpad9::
 SendMessage, 0x50,, 0x4190419,, A
 SendPlay, {T}
+Sleep 500
 SendPlay, /a ВНИМАНИЕ{!} Занимаю админ новости{!} {enter}
 Sleep 5000
 SendMessage, 0x50,, 0x4190419,, A
@@ -1821,3 +1822,5 @@ SendEvent {Click, 670, 878, 2, right}
 sleep 222
 SendPlay {esc}
 return
+Е/a ВНИМАНИЕ! Занимаю админ новости! 
+Е/p Уважаемые игроки! 
