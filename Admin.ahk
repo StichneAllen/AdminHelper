@@ -27,7 +27,7 @@ scriptDir := A_ScriptDir
 scriptName := A_ScriptName
 
 ; Локальная версия
-currentVersion := "1.3.0"  ; Укажите текущую версию скрипта
+currentVersion := "1.3.1"  ; Укажите текущую версию скрипта
 
 ; Ссылки на GitHub
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
@@ -131,6 +131,7 @@ if !EnsureFolderExists()
     ExitApp  ; Завершаем скрипт, если папку не удалось создать
 }
 
+
 ; Основной GUI
 Gui, Color, 212121 
 Gui 1:Font, s12 c000000 Bold, Arial
@@ -162,7 +163,7 @@ Gui 1:Font, s8 cWhite Bold, Arial
 Gui, Add, Text, x2 x380 y95 w395 h15 , /бх - BH при погоне
 Gui, Add, Text, x2 x380 y110 w395 h15 , /выходрп - Off от РП
 Gui, Add, Text, x2 x380 y125 w395 h15 , /вх - WH
-Gui, Add, Text, x2 x380 y140 w395 h15 , /дмигрока - DM игрока
+Gui, Add, Text, x2 x380 y140 w395 h15 , /дмигрок - DM игрока
 Gui, Add, Text, x2 x380 y155 w395 h15 , /дмкар - DM car
 Gui, Add, Text, x2 x380 y170 w395 h15 , /дмкил - DM kill
 Gui, Add, Text, x2 x380 y185 w395 h15 , /дб - DB
@@ -172,7 +173,7 @@ Gui, Add, Text, x2 x380 y230 w395 h15 , /погоняепт - Езда по га
 Gui, Add, Text, x2 x380 y245 w395 h15 , /погоняепп - Езда по полю при погоне
 Gui, Add, Text, x2 x380 y260 w395 h15 , /политпров - Полит. провокация
 Gui, Add, Text, x2 x380 y275 w395 h15 , /погонявело - Погоня на велосипеде
-Gui, Add, Text, x2 x380 y290 w395 h15 , /оскпроекта - Оск. проекта
+Gui, Add, Text, x2 x380 y290 w395 h15 , /оскпроект - Оск. проекта
 Gui, Add, Text, x2 x380 y305 w395 h15 , /оскрод - Оск. родных
 Gui, Add, Text, x2 x380 y320 w395 h15 , /оскадм - Оск. администрации
 Gui, Add, Text, x2 x380 y335 w395 h15 , /тк - TK
@@ -210,7 +211,7 @@ Gui, Add, Text, x20 y405 w330 h15 , /капс - Caps Lock
 Gui, Add, Text, x20 y420 w330 h15 , /флуд - Flood
 Gui, Add, Text, x20 y435 w330 h15 , /мат - Употребление нецензурных слов
 Gui, Add, Text, x20 y450 w330 h15 , /оскигрок - Оск. игроков
-Gui, Add, Text, x20 y465 w330 h15 , /неувобр - Неув. обращение в репорт
+Gui, Add, Text, x20 y465 w330 h15 , /неувоб - Неув. обращение в репорт
 Gui, Add, Text, x20 y480 w330 h15 , /безсвета - Без света ОТ
 Gui, Add, Text, x20 y495 w330 h15 , /пантограф - Торм. пантографом
 Gui, Add, Text, x20 y510 w330 h15 , /кикафк - Кик игроков 3+ афк (в хх:х5 (говка))
@@ -896,455 +897,266 @@ return
 :*?:/уходрп::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% Уход от РП by %SavedTag%
+    SendPlay, banname  d %Days% Уход от РП by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/выходрп::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 7 Off от РП by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay, banname  d 7 Off от РП by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/банбагоюз::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% Багоюз by %SavedTag%
+    SendPlay, banname  d %Days% Багоюз by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/чит::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 0 Читы by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay, banname  d 7 Off от РП by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/ботраб::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 0 Бот для работы by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  d 0 Бот для работы by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
-:*?:/дмигрока::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
+:*?:/дмигрок::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% DM by %SavedTag%
+    SendPlay, banname  d %Days% DM игрока by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/дб::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% DB by %SavedTag%
+    SendPlay, banname  d %Days% DB by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/вх::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% h 3 WH by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  h 3 WH by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/бх::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% BH при погоне by %SavedTag%
+    SendPlay, banname  d %Days% BH при погоне by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/тк::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% TK by %SavedTag%
+    SendPlay, banname  d %Days% TK by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/пг::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% PG by %SavedTag%
+    SendPlay, banname  d %Days% PG by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/упомрод::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 15 Упом. родных в негативном контексте by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  d 15 Упом. родных в негативном контексте by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/оскрод::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 30 Оск.родных by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  d 30 Оск.родных by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/оскадм::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% Оск. администрации by %SavedTag%
+    SendPlay, banname  d %Days% Оск. администрации by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/политпров::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 30 Политическая провокация by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  d 30 Политическая провокация by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/нацизм::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 30 Проявление нацизма by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  d 30 Проявление нацизма/расизма by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/расизм::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 30 Проявление расизма by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  d 30 Проявление расизма by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
-:*?:/оскпроекта::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 30 Оск. проекта by %SavedTag%
+:*?:/оскпроект::
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  d 30 Оск. проекта by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/рекламачит::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 0 Реклама сторонних ресурсов by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  d 0 Реклама сторонних ресурсов by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/шантаж::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
+    SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
+    Input, Days, V, {Enter}
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d 30 Шантаж игрока by %SavedTag%
+    SendPlay, banname  d %Days% Шантаж игрока by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
-:*?:/таран::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
+:*?:/Таран::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% Таран by %SavedTag%
+    SendPlay, banname  d %Days% Таран by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/подрез::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% Созд. аварийных ситуаций by %SavedTag%
+    SendPlay, banname  d %Days% Созд. аварийных ситуаций by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/погоняепт::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% Езда по газонам/тротуарам при погоне by %SavedTag%
+    SendPlay, banname  d %Days% Езда по газонам/тротуарам при погоне by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/погоняепп::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% ЕПП при погоне by %SavedTag%
+    SendPlay, banname  d %Days% ЕПП при погоне by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/ртлц::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Кол-во дней: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d %Days% Рабочий транспорт в ЛЦ by %SavedTag%
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  d 1 Рабочий транспорт в ЛЦ by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/нонрп::
@@ -1369,84 +1181,64 @@ return
     SendPlay, banname %Name% d %Days% NonRP by %SavedTag%
 return
 
-:*?:/вилка::
+:*?:/нонрп::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
+    SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
+    Input, Days, V, {Enter}
+    Days := Trim(Days)
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname  d %Days% NonRP by %SavedTag%
+    SendPlay, {Home}{Right 8}
+return
 
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d 1 Вилка в клаве by %SavedTag%
+:*?:/вилка::
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 100
+SendPlay banname  d 1 Вилка в клаве by %SavedTag%
+Sleep 100
+SendPlay, {Home}{Right 8}
 return
 
 :*?:/дмкар::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% DM car by %SavedTag%
+    SendPlay, banname  d %Days% DM car by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/дмкил::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% DM kill by %SavedTag%
+    SendPlay, banname  d %Days% DM kill by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/погонявело::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
     SendPlay, Кол-во дней: 
     Sleep 100
-    SendPlay, {Home}{Right 99}
     Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
+    Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname %Name% d %Days% Использование велосипеда при погоне by %SavedTag%
+    SendPlay, banname  d %Days% Использование велосипеда при погоне by %SavedTag%
+    SendPlay, {Home}{Right 8}
 return
 
 :*?:/епп::
@@ -1534,7 +1326,7 @@ return
     Sleep 100
     SendPlay, {Home}{Right 99}
     Input, Time, V, {Enter}
-    UserInput := Trim(UserInput)
+    Time := Trim(Time)
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
@@ -1556,7 +1348,7 @@ return
     Sleep 100
     SendPlay, {Home}{Right 99}
     Input, Time, V, {Enter}
-    UserInput := Trim(UserInput)
+    Time := Trim(Time)
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
@@ -1578,7 +1370,7 @@ return
     Sleep 100
     SendPlay, {Home}{Right 99}
     Input, Time, V, {Enter}
-    UserInput := Trim(UserInput)
+    Time := Trim(Time)
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
@@ -1600,7 +1392,7 @@ return
     Sleep 100
     SendPlay, {Home}{Right 99}
     Input, Time, V, {Enter}
-    UserInput := Trim(UserInput)
+    Time := Trim(Time)
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
@@ -1622,7 +1414,7 @@ return
     Sleep 100
     SendPlay, {Home}{Right 99}
     Input, Time, V, {Enter}
-    UserInput := Trim(UserInput)
+    Time := Trim(Time)
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
@@ -1644,7 +1436,7 @@ return
     Sleep 100
     SendPlay, {Home}{Right 99}
     Input, Time, V, {Enter}
-    UserInput := Trim(UserInput)
+    Time := Trim(Time)
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
@@ -1666,14 +1458,14 @@ return
     Sleep 100
     SendPlay, {Home}{Right 99}
     Input, Time, V, {Enter}
-    UserInput := Trim(UserInput)
+    Time := Trim(Time)
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
     SendPlay, muted %ID% h %Time% Оск. игрока by %SavedTag%
 return
 
-:*?:/неувобр::
+:*?:/неувоб::
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
     SendPlay, ID: 
@@ -1688,7 +1480,7 @@ return
     Sleep 100
     SendPlay, {Home}{Right 99}
     Input, Time, V, {Enter}
-    UserInput := Trim(UserInput)
+    Time := Trim(Time)
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
