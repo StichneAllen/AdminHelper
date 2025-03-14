@@ -20,11 +20,13 @@ if not A_IsAdmin
 scriptPath := A_ScriptFullPath
 scriptDir := A_ScriptDir
 scriptName := A_ScriptName
-currentVersion := "1.3.4"  ; Укажите текущую версию скрипта
+currentVersion := "1.3.5"  ; Укажите текущую версию скрипта
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
+githubChangelogURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/changelog.txt"  ; URL для получения информации об изменениях
+
 CheckForUpdates() {
-    global currentVersion, githubVersionURL, githubScriptURL, scriptPath, scriptDir, scriptName
+    global currentVersion, githubVersionURL, githubScriptURL, githubChangelogURL, scriptPath, scriptDir, scriptName
     whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
     whr.Open("GET", githubVersionURL, true)
     whr.Send()
@@ -44,6 +46,18 @@ CheckForUpdates() {
         MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
         IfMsgBox, No
             return
+
+        ; Получаем информацию об изменениях
+        whr.Open("GET", githubChangelogURL, true)
+        whr.Send()
+        whr.WaitForResponse()
+        status := whr.Status
+        if (status != 200) {
+            MsgBox, 16, Ошибка, Не удалось получить информацию об изменениях. Код статуса: %status%
+            return
+        }
+        changelog := whr.ResponseText
+
         whr.Open("GET", githubScriptURL, true)
         whr.Send()
         whr.WaitForResponse()
@@ -59,8 +73,8 @@ CheckForUpdates() {
         FileAppend, %newScript%, %scriptPath%
         currentVersion := serverVersion
 
-        MsgBox, 64, Успех, Скрипт успешно обновлен. Перезапустите скрипт.
-        ExitApp  ; Завершаем текущий скрипт
+        MsgBox, 64, Успех, Скрипт успешно обновлен до версии %serverVersion%.`n`nИзменения:`n%changelog%`n`nПерезапустите скрипт.
+        ExitApp
     }
 }
 CheckForUpdates()
