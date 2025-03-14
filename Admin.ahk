@@ -20,10 +20,10 @@ if not A_IsAdmin
 scriptPath := A_ScriptFullPath
 scriptDir := A_ScriptDir
 scriptName := A_ScriptName
-currentVersion := "1.3.5"  ; Укажите текущую версию скрипта
+currentVersion := "1.3.5"
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
-githubChangelogURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/changelog.txt"  ; URL для получения информации об изменениях
+githubChangelogURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/changelog.txt"
 
 CheckForUpdates() {
     global currentVersion, githubVersionURL, githubScriptURL, githubChangelogURL, scriptPath, scriptDir, scriptName
