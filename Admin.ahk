@@ -1,4 +1,5 @@
 #SingleInstance Force
+; Запуск от имени админа
 CheckUIA()
 {
     if (!A_IsCompiled && !InStr(A_AhkPath, "_UIA")) {
@@ -6,6 +7,7 @@ CheckUIA()
         ExitApp
     }
 }
+; Запуск Run with UI Access
 CheckUIA()
 
 if not A_IsAdmin
@@ -16,11 +18,12 @@ if not A_IsAdmin
 
 ;________________________________________________________________________________________________________________________________________________________________________________________
 
+; Авто обновление
 #SingleInstance Force
 scriptPath := A_ScriptFullPath
 scriptDir := A_ScriptDir
 scriptName := A_ScriptName
-currentVersion := "1.3.4"
+currentVersion := "1.3.5"
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
 githubChangelogURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/changelog.txt"
@@ -75,7 +78,7 @@ CheckForUpdates() {
 CheckForUpdates()
 
 ;________________________________________________________________________________________________________________________________________________________________________________________
-
+; Создание папки для тега
 folderPath := "C:\Program Files\AdminHelper"
 iniFile := folderPath "\tag_settings.ini"
 EnsureFolderExists() {
@@ -364,12 +367,9 @@ Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_
 
 
 ------------------------------------АДМИН ТЭГ------------------------------------
-; Кнопка для изменения тега
 Gui 1:Tab, 1
 Gui 1:Font, s12 cFD7B7C Bold Arial
 Gui 1:Add, Button, x640 y10 w150 h30 gOpenTagMenu BackgroundColor=cWhite TextColor=cFD7B7C, Изменение тега
-
-; Загрузка тега из файла
 if FileExist(iniFile) {
     IniRead, SavedTag, %iniFile%, Settings, Tag  ; читаем тег из файла
     if (SavedTag = "ERROR" || SavedTag = "") {  ; если тег пустой или файл поврежден
@@ -379,14 +379,10 @@ if FileExist(iniFile) {
 } else {
     SavedTag := ""  ; Если файла нет, оставляем тег пустым
 }
-
-; GUI для ввода тега
 Gui 3:Font, s12
 Gui 3:Add, Edit, vNewTagInput w200 BackgroundColor=White TextColor=Black, %SavedTag%  ; поле для ввода нового тега
 Gui 3:Add, Button, gSaveTag, save
 Gui 3:Add, Button, gCloseTagGUI, close
-
-; Основной GUI для тега
 Gui 2:Font, s14 Bold Arial
 Gui 2:Color, c202127
 Gui 2:Add, Edit, vCurrentTag w200 x100 y50 Center, %SavedTag%
@@ -396,14 +392,8 @@ Gui 2:Font, s14 c202127
 Gui 2:Add, Button, x140 y120 w120 h40 gButtonReset, Reset
 Gui 2:Add, Button, x10 y120 w120 h40 gButtonSave, Save
 Gui 2:Add, Button, x270 y120 w120 h40 gButtonCancel, Close
-
-; Показываем основной GUI (Gui 2)
 Gui 2:Hide
-
-; Запускаем таймер для проверки тега каждые 30 секунд
 SetTimer, CheckTag, 30000  ; 30000 мс = 30 секунд
-
-; Основной код скрипта
 Gui 1:Show, center h600 w800, AdminHelper
 return
 
@@ -416,22 +406,16 @@ if !FileExist(iniFile) || (SavedTag = "") {  ; Если файла нет или
     MsgBox, 16, Ошибка, Тег не задан! Пожалуйста, введите тег.
 }
 return
-
-; Обработчик кнопки "Сохранить" в GUI 3 (для тега)
 SaveTag:
 Gui 3:Submit, NoHide  ; Сохраняем введенные данные без закрытия GUI
 if (NewTagInput = "") {
     MsgBox, Ошибка: Тег не может быть пустым!
     return
 }
-
-; Проверяем, существует ли папка, и создаем её, если нет
 if !EnsureFolderExists()
 {
     return
 }
-
-; Сохраняем тег в файл
 IniWrite, %NewTagInput%, %iniFile%, Settings, Tag
 if ErrorLevel {
     MsgBox, Ошибка при сохранении тега!
@@ -441,20 +425,14 @@ MsgBox, Новый тег сохранен: %NewTagInput%
 SavedTag := NewTagInput  ; Обновляем переменную SavedTag
 GuiControl, 2:, CurrentTag, %NewTagInput%  ; Обновляем поле в GUI 2
 return
-
-; Обработчик кнопки "Закрыть" в GUI 3
 CloseTagGUI:
 Gui 3:Hide  ; Скрываем GUI 3
 return
-
-; Обработчик кнопки "Сбросить" в GUI 2
 ButtonReset:
 MsgBox, 4,, Вы уверены, что хотите сбросить тег?
 IfMsgBox, No
     return
 GuiControl, 2:, CurrentTag,  ; Очищаем поле ввода
-
-; Проверяем, существует ли папка, и создаем её, если нет
 if !EnsureFolderExists()
 {
     return
@@ -464,8 +442,6 @@ IniDelete, %iniFile%, Settings, Tag  ; Удаляем тег из файла
 SavedTag := ""  ; Очищаем переменную SavedTag
 MsgBox, Тег сброшен.
 return
-
-; Обработчик кнопки "Сохранить" в GUI 2
 ButtonSave:
 Gui 2:Submit, NoHide
 GuiControlGet, CurrentTag,, CurrentTag
@@ -473,8 +449,6 @@ if (CurrentTag = "") {
     MsgBox, Ошибка: Тег не может быть пустым!
     return
 }
-
-; Проверяем, существует ли папка, и создаем её, если нет
 if !EnsureFolderExists()
 {
     return
@@ -488,13 +462,9 @@ if ErrorLevel {
 SavedTag := CurrentTag  ; Обновляем переменную SavedTag
 MsgBox, Тег сохранен: %CurrentTag%
 return
-
-; Обработчик кнопки для открытия меню изменения тега
 OpenTagMenu:
 Gui 2:Show, w400 h170, Admin tag
 return
-
-; Обработчик кнопки "Закрыть" в GUI 2
 ButtonCancel:
 Gui 1:-Disabled
 Gui 2:Cancel
@@ -505,13 +475,11 @@ return
 Gui 3:Show,, Настройка тега
 return
 
-
-;Закрыть скрипт на крестик
+; Закрыть скрипт на крестик
 ;GuiClose:
 ;ExitApp
 
 ------------------------------------АДМИН ТЭГ------------------------------------
-
 
 numpad0::
 SendMessage, 0x50,, 0x4190419,, A
