@@ -71,7 +71,7 @@ CheckForUpdates() {
         FileAppend, %newScript%, %scriptPath%
         currentVersion := serverVersion
 
-        MsgBox, 64, Скрипт обновлен, Скрипт успешно обновлен до версии %serverVersion%.`nОбновления:`n%changelog%
+        MsgBox, 64, Скрипт обновлен, Скрипт успешно обновлен до версии %serverVersion%.`n`nОбновления:`n%changelog%
         ExitApp
     }
 }
