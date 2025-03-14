@@ -1,6 +1,4 @@
 #SingleInstance Force
-
-; Проверка на UIA
 CheckUIA()
 {
     if (!A_IsCompiled && !InStr(A_AhkPath, "_UIA")) {
@@ -10,68 +8,45 @@ CheckUIA()
 }
 CheckUIA()
 
-; Проверка прав администратора
 if not A_IsAdmin
 {
-    Run *RunAs "%A_ScriptFullPath%"  ; *RunAs запрашивает права администратора
-    ExitApp  ; Завершаем текущий экземпляр скрипта
+    Run *RunAs "%A_ScriptFullPath%" 
+    ExitApp
 }
 
 ;________________________________________________________________________________________________________________________________________________________________________________________
 
 #SingleInstance Force
-
-; Путь к текущему скрипту
 scriptPath := A_ScriptFullPath
 scriptDir := A_ScriptDir
 scriptName := A_ScriptName
-
-; Локальная версия
-currentVersion := "1.3.2"  ; Укажите текущую версию скрипта
-
-; Ссылки на GitHub
+currentVersion := "1.3.3"  ; Укажите текущую версию скрипта
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
-
-; Функция для проверки обновлений
 CheckForUpdates() {
     global currentVersion, githubVersionURL, githubScriptURL, scriptPath, scriptDir, scriptName
-
-    ; Загружаем версию с GitHub
     whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
     whr.Open("GET", githubVersionURL, true)
     whr.Send()
     whr.WaitForResponse()
-
-    ; Проверяем статус ответа
     status := whr.Status
     if (status != 200) {
         MsgBox, 16, Ошибка, Не удалось получить версию с сервера. Код статуса: %status%
         return
     }
-
-    ; Убираем все лишние символы (пробелы, переносы строк и т.д.)
     serverVersion := Trim(whr.ResponseText)
-    serverVersion := RegExReplace(serverVersion, "[\r\n]+", "")  ; Удаляем переносы строк
-    serverVersion := RegExReplace(serverVersion, "\s+", "")     ; Удаляем все пробелы
-
-    ; Убираем лишние символы из локальной версии
+    serverVersion := RegExReplace(serverVersion, "[\r\n]+", "")
+    serverVersion := RegExReplace(serverVersion, "\s+", "")
     currentVersion := Trim(currentVersion)
     currentVersion := RegExReplace(currentVersion, "[\r\n]+", "")
     currentVersion := RegExReplace(currentVersion, "\s+", "")
-
-    ; Сравниваем версии
     if (serverVersion != currentVersion) {
         MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
         IfMsgBox, No
             return
-
-        ; Загружаем новый скрипт
         whr.Open("GET", githubScriptURL, true)
         whr.Send()
         whr.WaitForResponse()
-
-        ; Проверяем статус ответа
         status := whr.Status
         if (status != 200) {
             MsgBox, 16, Ошибка, Не удалось загрузить новый скрипт. Код статуса: %status%
@@ -79,37 +54,24 @@ CheckForUpdates() {
         }
 
         newScript := whr.ResponseText
-
-        ; Переименовываем старый скрипт
         oldScriptPath := scriptDir "\" RegExReplace(scriptName, "\.ahk$", "") " (old).ahk"
         FileMove, %scriptPath%, %oldScriptPath%
-
-        ; Сохраняем новый скрипт
         FileAppend, %newScript%, %scriptPath%
-
-        ; Обновляем текущую версию
         currentVersion := serverVersion
 
         MsgBox, 64, Успех, Скрипт успешно обновлен. Перезапустите скрипт.
         ExitApp  ; Завершаем текущий скрипт
     }
 }
-
-; Проверка обновлений при запуске
 CheckForUpdates()
 
 ;________________________________________________________________________________________________________________________________________________________________________________________
-
-; Путь к папке в Program Files
 folderPath := "C:\Program Files\AdminHelper"
 iniFile := folderPath "\tag_settings.ini"
-
-; Функция для проверки и создания папки, если её нет
 EnsureFolderExists() {
     global folderPath
     if !FileExist(folderPath)
     {
-        ; Пытаемся создать папку
         FileCreateDir, %folderPath%
         if ErrorLevel
         {
@@ -124,15 +86,10 @@ EnsureFolderExists() {
     }
     return true
 }
-
-; Проверяем и создаем папку при запуске
 if !EnsureFolderExists()
 {
     ExitApp  ; Завершаем скрипт, если папку не удалось создать
 }
-
-
-; Основной GUI
 Gui, Color, 212121 
 Gui 1:Font, s12 c000000 Bold, Arial
 Gui 1:Add, Tab2, x9 y10 h40 w450 Buttons -Wrap c9FFC69, Основное|GPS|Телепорты [3+]|Другое
@@ -166,30 +123,31 @@ Gui, Add, Text, x2 x380 y125 w395 h15 , /вх - WH
 Gui, Add, Text, x2 x380 y140 w395 h15 , /дмигрок - DM игрока
 Gui, Add, Text, x2 x380 y155 w395 h15 , /дмкар - DM car
 Gui, Add, Text, x2 x380 y170 w395 h15 , /дмкил - DM kill
-Gui, Add, Text, x2 x380 y185 w395 h15 , /дб - DB
-Gui, Add, Text, x2 x380 y200 w395 h15 , /пг - PG
-Gui, Add, Text, x2 x380 y215 w395 h15 , /подрез - Созд. аварийных ситуаций
-Gui, Add, Text, x2 x380 y230 w395 h15 , /погоняепт - Езда по газонам/тротуарам при погоне
-Gui, Add, Text, x2 x380 y245 w395 h15 , /погоняепп - Езда по полю при погоне
-Gui, Add, Text, x2 x380 y260 w395 h15 , /политпров - Полит. провокация
-Gui, Add, Text, x2 x380 y275 w395 h15 , /погонявело - Погоня на велосипеде
-Gui, Add, Text, x2 x380 y290 w395 h15 , /оскпроект - Оск. проекта
-Gui, Add, Text, x2 x380 y305 w395 h15 , /оскрод - Оск. родных
-Gui, Add, Text, x2 x380 y320 w395 h15 , /оскадм - Оск. администрации
-Gui, Add, Text, x2 x380 y335 w395 h15 , /тк - TK
-Gui, Add, Text, x2 x380 y350 w395 h15 , /таран - Таран авто
-Gui, Add, Text, x2 x380 y365 w395 h15 , /упомрод - Упом. родных
-Gui, Add, Text, x2 x380 y380 w395 h15 , /уходрп - Уход от рп
-Gui, Add, Text, x2 x380 y395 w395 h15 , /шантаж - Шантаж и вымогательства
-Gui, Add, Text, x2 x380 y410 w395 h15 , /нацизм - Проявление нацизма
-Gui, Add, Text, x2 x380 y425 w395 h15 , /расизм - Проявление расизма
-Gui, Add, Text, x2 x380 y440 w395 h15 , /ртлц - Рабочий транспорт в ЛЦ
-Gui, Add, Text, x2 x380 y455 w395 h15 , /банбагоюз - Мелкий багоюз
-Gui, Add, Text, x2 x380 y470 w395 h15 , /нонрп - NonRP
-Gui, Add, Text, x2 x380 y485 w395 h15 , /вилка - Вилка в клаве
-Gui, Add, Text, x2 x380 y500 w395 h15 , /рекламачит - Реклама сторонних рес.
-Gui, Add, Text, x2 x380 y515 w395 h15 , /чит - Читы
-Gui, Add, Text, x2 x380 y530 w395 h15 , /ботраб - Бот для работы
+Gui, Add, Text, x2 x380 y185 w395 h15 , /дмкпз - DM через клетку КПЗ
+Gui, Add, Text, x2 x380 y200 w395 h15 , /дб - DB
+Gui, Add, Text, x2 x380 y215 w395 h15 , /пг - PG
+Gui, Add, Text, x2 x380 y230 w395 h15 , /подрез - Созд. аварийных ситуаций
+Gui, Add, Text, x2 x380 y245 w395 h15 , /погоняепт - Езда по газонам/тротуарам при погоне
+Gui, Add, Text, x2 x380 y260 w395 h15 , /погоняепп - Езда по полю при погоне
+Gui, Add, Text, x2 x380 y275 w395 h15 , /политпров - Полит. провокация
+Gui, Add, Text, x2 x380 y290 w395 h15 , /погонявело - Погоня на велосипеде
+Gui, Add, Text, x2 x380 y305 w395 h15 , /оскпроект - Оск. проекта
+Gui, Add, Text, x2 x380 y320 w395 h15 , /оскрод - Оск. родных
+Gui, Add, Text, x2 x380 y335 w395 h15 , /оскадм - Оск. администрации
+Gui, Add, Text, x2 x380 y350 w395 h15 , /тк - TK
+Gui, Add, Text, x2 x380 y365 w395 h15 , /таран - Таран авто
+Gui, Add, Text, x2 x380 y380 w395 h15 , /упомрод - Упом. родных
+Gui, Add, Text, x2 x380 y395 w395 h15 , /уходрп - Уход от рп
+Gui, Add, Text, x2 x380 y410 w395 h15 , /шантаж - Шантаж и вымогательства
+Gui, Add, Text, x2 x380 y425 w395 h15 , /нацизм - Проявление нацизма
+Gui, Add, Text, x2 x380 y440 w395 h15 , /расизм - Проявление расизма
+Gui, Add, Text, x2 x380 y455 w395 h15 , /ртлц - Рабочий транспорт в ЛЦ
+Gui, Add, Text, x2 x380 y470 w395 h15 , /банбагоюз - Мелкий багоюз
+Gui, Add, Text, x2 x380 y485 w395 h15 , /нонрп - NonRP
+Gui, Add, Text, x2 x380 y500 w395 h15 , /вилка - Вилка в клаве
+Gui, Add, Text, x2 x380 y515 w395 h15 , /рекламачит - Реклама сторонних рес.
+Gui, Add, Text, x2 x380 y530 w395 h15 , /чит - Читы
+Gui, Add, Text, x2 x380 y545 w395 h15 , /ботраб - Бот для работы
 Gui, Font, S8 c747474, Regular, Arial,
 Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_McKenzy
 
@@ -1212,6 +1170,19 @@ return
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
     SendPlay, banname  d %Days% DM car by %SavedTag%
+    SendPlay, {Home}{Right 8}
+return
+
+:*?:/дмкпз::
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, Кол-во дней: 
+    Sleep 100
+    Input, Days, V, {Enter}
+    Days := Trim(Days)
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay, banname  d %Days% DM через клетку КПЗ by %SavedTag%
     SendPlay, {Home}{Right 8}
 return
 
