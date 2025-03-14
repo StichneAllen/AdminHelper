@@ -27,7 +27,7 @@ scriptDir := A_ScriptDir
 scriptName := A_ScriptName
 
 ; Локальная версия
-currentVersion := "1.3.1"  ; Укажите текущую версию скрипта
+currentVersion := "1.3.2"  ; Укажите текущую версию скрипта
 
 ; Ссылки на GitHub
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
@@ -931,7 +931,7 @@ return
 :*?:/чит::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay, banname  d 7 Off от РП by %SavedTag%
+SendPlay, banname  d 0 Читы by %SavedTag%
 Sleep 100
 SendPlay, {Home}{Right 8}
 return
