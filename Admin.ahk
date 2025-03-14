@@ -24,7 +24,6 @@ currentVersion := "1.3.4"
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
 githubChangelogURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/changelog.txt"
-
 CheckForUpdates() {
     global currentVersion, githubVersionURL, githubScriptURL, githubChangelogURL, scriptPath, scriptDir, scriptName
     whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
@@ -46,8 +45,6 @@ CheckForUpdates() {
         MsgBox, 4, Обновление, Доступна новая версия (%serverVersion%). Хотите обновить?
         IfMsgBox, No
             return
-
-        ; Получаем информацию об изменениях
         whr.Open("GET", githubChangelogURL, true)
         whr.Send()
         whr.WaitForResponse()
@@ -57,7 +54,6 @@ CheckForUpdates() {
             return
         }
         changelog := whr.ResponseText
-
         whr.Open("GET", githubScriptURL, true)
         whr.Send()
         whr.WaitForResponse()
@@ -66,7 +62,6 @@ CheckForUpdates() {
             MsgBox, 16, Ошибка, Не удалось загрузить новый скрипт. Код статуса: %status%
             return
         }
-
         newScript := whr.ResponseText
         oldScriptPath := scriptDir "\" RegExReplace(scriptName, "\.ahk$", "") " (old).ahk"
         FileMove, %scriptPath%, %oldScriptPath%
@@ -80,6 +75,7 @@ CheckForUpdates() {
 CheckForUpdates()
 
 ;________________________________________________________________________________________________________________________________________________________________________________________
+
 folderPath := "C:\Program Files\AdminHelper"
 iniFile := folderPath "\tag_settings.ini"
 EnsureFolderExists() {
@@ -104,6 +100,9 @@ if !EnsureFolderExists()
 {
     ExitApp  ; Завершаем скрипт, если папку не удалось создать
 }
+
+;________________________________________________________________________________________________________________________________________________________________________________________
+
 Gui, Color, 212121 
 Gui 1:Font, s12 c000000 Bold, Arial
 Gui 1:Add, Tab2, x9 y10 h40 w450 Buttons -Wrap c9FFC69, Основное|GPS|Телепорты [3+]|Другое
