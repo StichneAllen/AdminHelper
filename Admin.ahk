@@ -23,7 +23,7 @@ if not A_IsAdmin
 scriptPath := A_ScriptFullPath
 scriptDir := A_ScriptDir
 scriptName := A_ScriptName
-currentVersion := "1.3.5"
+currentVersion := "1.3.6"
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
 githubChangelogURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/changelog.txt"
@@ -76,7 +76,6 @@ CheckForUpdates() {
     }
 }
 CheckForUpdates()
-
 ;________________________________________________________________________________________________________________________________________________________________________________________
 ; Создание папки для тега
 folderPath := "C:\Program Files\AdminHelper"
@@ -122,8 +121,8 @@ Gui, Add, Text, x2 x20 y150 w300 h15 , ALT+Num7 - Жб. на форум
 Gui, Add, Text, x2 x20 y165 w300 h15 , CTRL+Num8 - Обж. на форум
 Gui, Add, Text, x2 x20 y180 w300 h15 , ALT+Num8 - Соблюдать ПДД
 Gui, Add, Text, x2 x20 y195 w338 h15 c9FFC69, ALT+Num9 - /rcarall 4+ (АДМ НОВОСТИ, ЧАТ НЕ ОТКРЫВАТЬ!)
-Gui, Add, Text, x2 x20 y210 w300 h15 , ALT+Num0 - Проверка на бота пройдена
-Gui, Add, Text, x2 x20 y225 w300 h15 , CTRL+Num0 - Проверка на бота
+Gui, Add, Text, x2 x20 y210 w300 h15 , ALT+Num0 - Проверка на бота
+Gui, Add, Text, x2 x20 y225 w300 h15 , CTRL+Num0 - Проверка на бота пройдена
 
 ; ------------------------------- Админ команды БАНЫ (ОСНОВНОЕ)-------------------------------
 
@@ -364,8 +363,6 @@ Gui, Add, Text, x2 x20 y300 w280 h15 ,
 Gui, Font, S8 c747474, Regular, Arial,
 Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_McKenzy
 
-
-
 ------------------------------------АДМИН ТЭГ------------------------------------
 Gui 1:Tab, 1
 Gui 1:Font, s12 cFD7B7C Bold Arial
@@ -481,14 +478,9 @@ return
 
 ------------------------------------АДМИН ТЭГ------------------------------------
 
-numpad0::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}[Проверка на бота] Как меня зовут? {enter}
-return
-
 !numpad0::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}[Проверка на бота] Какой у вас уровень? {enter}
+SendPlay, {space}[Проверка на бота] Как меня зовут? {enter}
 return
 
 ^numpad0::
@@ -542,43 +534,30 @@ SendPlay {space}Уважаемый игрок{!} Соблюдайте ПДД. {e
 return
 
 !numpad9::
-SendMessage, 0x50,, 0x4190419,, A
 SendPlay, {T}
-Sleep 500
-SendPlay, /a ВНИМАНИЕ{!} Занимаю админ новости{!} {enter}
-Sleep 5000
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {T}
-Sleep 500
+Sleep 300
 SendPlay, /p Уважаемые игроки{!} {enter}
-Sleep 29000
-SendMessage, 0x50,, 0x4190419,, A
+Sleep 300
 SendPlay, {T}
 Sleep 500
 SendPlay, /p Через 30 секунд будет респавн всех служебных и рабочих ТС. Просим занять свои авто. {enter}
-SendMessage, 0x50,, 0x4190419,, A
+Sleep 29000
 SendPlay, {T}
-Sleep 500
+SendMessage, 0x50,, 0x4190419,, A
+Sleep 300
 SendPlay, /rcarall {enter}
-Sleep 500
-SendMessage, 0x50,, 0x4190419,, A
+Sleep 300
 SendPlay, {T}
 Sleep 500
-SendMessage, 0x50,, 0x4190419,, A
 SendPlay, /p Респавн транспорта произошёл успешно. Приятной игры с администрацией второго сервера{!} {Enter}
 return
 
 :*?:/рекламамп1::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 500
-SendPlay /a ВНИМАНИЕ{!} Занимаю админ новости{!} {enter}
-Sleep 5000
-SendPlay, {T}
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 500
 SendPlay /p Не знаешь, чем заняться на сервере и ищешь развлечения? {enter}
-Sleep 500
-SendMessage, 0x50,, 0x4190419,, A
+Sleep 300
 SendPlay, {T}
 Sleep 500
 SendPlay /p Ежедневные рубрики и мероприятия с призами публикуются в нашей группе vk.com/2province_mp {enter}
@@ -589,17 +568,14 @@ SendMessage, 0x50,, 0x4190419,,
 Sleep 300
 SendPlay /p Хотите стоять на страже закона и участвовать в операциях по задержанию опасных преступников? {enter}
 Sleep 100
-SendMessage, 0x50,, 0x4190419,, A
 SendPlay, {T}
 Sleep 300
 SendPlay /p Присоединяйтесь к одному из филиалов УВД Республики Провинция{!} {enter}
 Sleep 100
-SendMessage, 0x50,, 0x4190419,, A
 SendPlay, {T}
 Sleep 300
 SendPlay /p Ежедневные патрули, задержание преступников, обучение и специальные мероприятия ждут вас. {enter}
 Sleep 100
-SendMessage, 0x50,, 0x4190419,, A
 SendPlay, {T}
 Sleep 300
 SendPlay /p Оставить заявку на трудоустройство можно в любой из городов: https://vk.cc/ceSvIP {enter}
