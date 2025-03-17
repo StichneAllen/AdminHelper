@@ -107,7 +107,7 @@ if !EnsureFolderExists()
 
 Gui, Color, 212121 
 Gui 1:Font, s12 c000000 Bold, Arial
-Gui 1:Add, Tab2, x9 y10 h40 w450 Buttons -Wrap c9FFC69, Основное|GPS|Телепорты [3+]|Другое
+Gui 1:Add, Tab2, x9 y10 h40 w450 Buttons -Wrap c9FFC69, Основное|GPS|Другое
 Gui 1:Font, s11 c000000 Bold, Arial
 Gui 1:Add, GroupBox, x10 y40 w350 h205 c9FFC69, [ keys ]
 Gui 1:Font, s8 cWhite Bold, Arial
@@ -130,7 +130,7 @@ Gui 1:Font, s11 cWhite Bold, Arial
 Gui 1:Add, GroupBox, x370 y40 w420 h540 c9FFC69, [ banname (3 lvl) ]
 Gui 1:Font, s11 cWhite Bold, Arial
 Gui, Add, Text, x2 x380 y60 w400 h15 c9FFC69, Все блокировки по нику.
-Gui, Add, Text, x2 x380 y75 w400 h20 c9FFC69, Данные команды исключительно в F8 ! ! !
+Gui, Add, Text, x2 x380 y75 w400 h20 c9FFC69, Данные команды вводить исключительно в F8 ! ! !
 Gui 1:Font, s8 cWhite Bold, Arial
 Gui, Add, Text, x2 x380 y95 w395 h15 , /бх - BH при погоне
 Gui, Add, Text, x2 x380 y110 w395 h15 , /выходрп - Off от РП
@@ -254,7 +254,7 @@ Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_
 
 ; ------------------------------- Часто используемые (БИНДЫ)-------------------------------
 
-Gui 1:Tab, 4
+Gui 1:Tab, 3
 Gui 1:Font, s11 cWhite Bold, Arial
 Gui 1:Add, GroupBox, x10 y40 w300 h280 c9FFC69, [ binds ]
 Gui 1:Font, s8 cWhite Bold, Arial
@@ -279,8 +279,8 @@ Gui, Add, Text, x2 x20 y300 w280 h15 , [Писать в F8] /нум - Все к�
 ; ------------------------------- Другое (БИНДЫ/ДРУГОЕ)-------------------------------
 
 Gui 1:Font, s11 cWhite Bold, Arial
-Gui 1:Tab, 4
-Gui 1:Add, GroupBox, x320 y40 w350 h325 c9FFC69, [ command ]
+Gui 1:Tab, 3
+Gui 1:Add, GroupBox, x320 y40 w350 h280 c9FFC69, [ command ]
 Gui 1:Font, s8 cWhite Bold, Arial
 Gui, Add, Text, x330 y60 w320 h15 , /проверкаафк - Проверка на AFK
 Gui, Add, Text, x330 y75 w320 h15 , /впс - Попросить игрока изучить ВПС
@@ -298,68 +298,10 @@ Gui, Add, Text, x330 y240 w320 h15 , /донат - Сайт с донатом в
 Gui, Add, Text, x330 y255 w320 h15 , /скидка - Промокод на скидку
 Gui, Add, Text, x330 y270 w320 h15 , /баг - Писать про баг в ДС
 Gui, Add, Text, x330 y285 w320 h15 , /берег - Ищите берег самостоятельно
-Gui, Add, Text, x330 y300 w320 h15 , -
-Gui, Add, Text, x330 y315 w320 h15 , -
-Gui, Add, Text, x330 y330 w320 h15 , -
-Gui, Add, Text, x330 y345 w320 h15 , -
-Gui, Font, S8 c747474, Regular, Arial,
-Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_McKenzy
-
-; ------------------------------- Телепорты (БИНДЫ/ДРУГОЕ)-------------------------------
-Gui 1:Font, s11 cWhite Bold, Arial
-Gui 1:Tab, 3
-Gui 1:Add, GroupBox, x410 y40 w380 h450 c9FFC69, [ tp (3 lvl) (ОКОННЫЙ РЕЖИМ!!!)]
-Gui 1:Font, s8 cWhite Bold, Arial
-Gui, Add, Text, x2 x420 y60 w250 h15 c9FFC69, /тпофис<п/м/н>1
-Gui, Add, Text, x2 x513 y60 w250 h15 , - Телепорт в офис Привы
-Gui, Add, Text, x2 x420 y75 w250 h15 c9FFC69, /тпбу1
-Gui, Add, Text, x2 x457 y75 w250 h15 , - Телепорт на БУ
-Gui, Add, Text, x2 x420 y90 w250 h15 c9FFC69, /тпбанк<п/м/н>1
-Gui, Add, Text, x2 x510 y90 w250 h15, - Телепорт в банк Прива/Мирка/Нева
-Gui, Add, Text, x2 x420 y105 w250 h15 c9FFC69, /тпбольница<п/м/н>1
-Gui, Add, Text, x2 x538 y105 w240 h15 , - Телепорт в больницу Прива/Мирка/Нева
-Gui, Add, Text, x2 x420 y120 w250 h15 c9FFC69, /тпгувд<п/м/н>1
-Gui, Add, Text, x2 x508 y120 w240 h15 , - Телепорт в ГУВД П/М/Н
-Gui, Add, Text, x2 x420 y135 w250 h15 ,
-Gui, Add, Text, x2 x420 y150 w250 h15 ,
-Gui, Add, Text, x2 x420 y165 w250 h15 ,
-Gui, Add, Text, x2 x420 y180 w250 h15 ,
-Gui, Add, Text, x2 x420 y195 w250 h15 ,
-Gui, Add, Text, x2 x420 y210 w250 h15 ,
-Gui, Add, Text, x2 x420 y225 w250 h15 ,
-Gui, Add, Text, x2 x420 y240 w250 h15 ,
-Gui, Add, Text, x2 x420 y255 w250 h15 ,
-Gui, Add, Text, x2 x420 y270 w250 h15 ,
-Gui, Add, Text, x2 x420 y285 w250 h15 ,
-Gui, Add, Text, x2 x420 y300 w280 h15 ,
-
-Gui 1:Font, s11 cWhite Bold, Arial
-Gui 1:Tab, 3
-Gui 1:Add, GroupBox, x10 y40 w390 h450 c9FFC69, [ tp (3 lvl) (ОКНО БЕЗ РАМКИ/СТАНДАРТ!!!)]
-Gui 1:Font, s8 cWhite Bold, Arial
-Gui, Add, Text, x2 x20 y60 w250 h15 c9FFC69, /тпофис<п/м/н>
-Gui, Add, Text, x2 x108 y60 w250 h15 , - Телепорт в офис Привы
-Gui, Add, Text, x2 x20 y75 w250 h15 c9FFC69, /тпбу
-Gui, Add, Text, x2 x52 y75 w250 h15 , - Телепорт на БУ
-Gui, Add, Text, x2 x20 y90 w250 h15 c9FFC69, /тпбанк<п/м/н>
-Gui, Add, Text, x2 x105 y90 w250 h15, - Телепорт в банк Прива/Мирка/Нева
-Gui, Add, Text, x2 x20 y105 w250 h15 c9FFC69, /тпбольница<п/м/н>
-Gui, Add, Text, x2 x133 y105 w240 h15 , - Телепорт в больницу Прива/Мирка/Нева
-Gui, Add, Text, x2 x20 y120 w250 h15 c9FFC69, /тпгувд<п/м/н>
-Gui, Add, Text, x2 x103 y120 w240 h15 , - Телепорт в ГУВД П/М/Н
-Gui, Add, Text, x2 x20 y135 w250 h15 ,
-Gui, Add, Text, x2 x20 y150 w250 h15 ,
-Gui, Add, Text, x2 x20 y165 w250 h15 ,
-Gui, Add, Text, x2 x20 y180 w250 h15 ,
-Gui, Add, Text, x2 x20 y195 w250 h15 ,
-Gui, Add, Text, x2 x20 y210 w250 h15 ,
-Gui, Add, Text, x2 x20 y225 w250 h15 ,
-Gui, Add, Text, x2 x20 y240 w250 h15 ,
-Gui, Add, Text, x2 x20 y255 w250 h15 ,
-Gui, Add, Text, x2 x20 y270 w250 h15 ,
-Gui, Add, Text, x2 x20 y285 w250 h15 ,
-Gui, Add, Text, x2 x20 y300 w280 h15 ,
-
+;Gui, Add, Text, x330 y300 w320 h15 , -
+;Gui, Add, Text, x330 y315 w320 h15 , -
+;Gui, Add, Text, x330 y330 w320 h15 , -
+;Gui, Add, Text, x330 y345 w320 h15 , -
 Gui, Font, S8 c747474, Regular, Arial,
 Gui, Add, Text, x545 y582 w300 h30 , Создатели: Stich_Allen and German_McKenzy
 
@@ -485,7 +427,7 @@ return
 
 ^numpad0::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Проверка на отсутствие бота для работы пройдена. {enter}
+SendPlay, {space}Проверка на отсутствие бота для работы пройдена {enter}
 return
 
 !numpad1::
@@ -495,12 +437,12 @@ return
 
 !numpad2::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay {space}Слежу. {enter}
+SendPlay {space}Слежу {enter}
 return
 
 !numpad3::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}На момент слежки нарушений не заметил. {enter}
+SendPlay, {space}Нарушений не заметил. {enter}
 return
 
 !numpad4::
@@ -536,18 +478,18 @@ return
 !numpad9::
 SendPlay, {T}
 SendMessage, 0x50,, 0x4190419,, A
-Sleep 300
+Sleep 500
 SendPlay, /p Уважаемые игроки{!} {enter}
-Sleep 300
+Sleep 500
 SendPlay, {T}
 Sleep 500
 SendPlay, /p Через 30 секунд будет респавн всех служебных и рабочих ТС. Просим занять свои авто. {enter}
 Sleep 29000
 SendPlay, {T}
 SendMessage, 0x50,, 0x4190419,, A
-Sleep 300
+Sleep 500
 SendPlay, /rcarall {enter}
-Sleep 300
+Sleep 500
 SendPlay, {T}
 Sleep 500
 SendPlay, /p Респавн транспорта произошёл успешно. Приятной игры с администрацией второго сервера{!} {Enter}
@@ -565,19 +507,19 @@ return
 
 :*?:/гувд::
 SendMessage, 0x50,, 0x4190419,,
-Sleep 300
+Sleep 500
 SendPlay /p Хотите стоять на страже закона и участвовать в операциях по задержанию опасных преступников? {enter}
-Sleep 100
+Sleep 500
 SendPlay, {T}
-Sleep 300
+Sleep 500
 SendPlay /p Присоединяйтесь к одному из филиалов УВД Республики Провинция{!} {enter}
-Sleep 100
+Sleep 500
 SendPlay, {T}
-Sleep 300
+Sleep 500
 SendPlay /p Ежедневные патрули, задержание преступников, обучение и специальные мероприятия ждут вас. {enter}
-Sleep 100
+Sleep 500
 SendPlay, {T}
-Sleep 300
+Sleep 500
 SendPlay /p Оставить заявку на трудоустройство можно в любой из городов: https://vk.cc/ceSvIP {enter}
 return
 
@@ -776,7 +718,7 @@ return
 :*?:/впс::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay  Изучите правила сервера. Ссылка на раздел: https://vk.cc/cyUfaM {enter}
+SendPlay  Изучите правила сервера {enter}
 return
 
 :*?:/мп::
@@ -1496,19 +1438,19 @@ return
 :*?:/проверкаафк::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay [Проверка на AFK] Здравствуйте{!} Вы тут? Ответ в /report - Да. {enter}
+SendPlay Вы тут? Ответ в /report - Да. {enter}
 return
 
 :*?:/дистанция::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay Уважаемый игрок{!} Соблюдайте дистанцию в 2-3 вагона, иначе последует наказание. {enter}
+SendPlay Соблюдайте дистанцию в 2-3 вагона, иначе последует наказание. {enter}
 return
 
 :*?:/свет::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay Уважаемый игрок{!} Включите свет в салоне и фары (клавиши K и L). {enter}
+SendPlay Включите свет в салоне и фары (клавиши K и L). {enter}
 return
 
 :*?:/номер::
@@ -1761,291 +1703,4 @@ return
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
 SendPlay bind f11 radar - Карта (F11) {enter}
-return
-
-; ------------------------------- ОКНА В РАМКЕ (ТЕЛЕПОРТЫ)-------------------------------
-
-:*?:/тпофисп1::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 200
-SendPlay /gps {enter}
-Sleep 200
-SendEvent {Click, 650, 400}
-Sleep 300
-SendEvent {Click, 1155, 400}
-Sleep 400
-SendEvent {Click, 650, 750, 2, right}
-Sleep 100
-SendPlay {esc}
-return
-
-:*?:/тпбу1::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 200
-SendPlay /gps {enter}
-Sleep 200
-SendEvent {Click, 650, 400}
-Sleep 200
-SendEvent {Click, 1055, 400}
-Sleep 200
-SendEvent {Click, 650, 635, 2, right}
-Sleep 100
-SendPlay {esc}
-return
-
-:*?:/тпбанкп1::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 200
-SendPlay /gps {enter}
-Sleep 200
-SendEvent {Click, 650, 400}
-Sleep 200
-SendEvent {Click, 1240, 400}
-Sleep 200
-SendEvent {Click, 650, 635, 2, right}
-Sleep 100
-SendPlay {esc}
-return
-
-:*?:/тпбольницап1::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 200
-SendPlay /gps {enter}
-Sleep 200
-SendEvent {Click, 650, 400}
-Sleep 200
-SendEvent {Click, 1240, 400}
-Sleep 200
-SendEvent {Click, 675, 695, 2, right}
-Sleep 100
-SendPlay {esc}
-return
-
-:*?:/тпбольницам1::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 200
-SendPlay /gps {enter}
-Sleep 200
-SendEvent {Click, 740, 400}
-Sleep 200
-SendEvent {Click, 1240, 400}
-Sleep 200
-SendEvent {Click, 675, 695, 2, right}
-Sleep 100
-SendPlay {esc}
-return
-
-:*?:/тпбольницан1::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 200
-SendPlay /gps {enter}
-Sleep 200
-SendEvent {Click, 830, 400}
-; нева
-Sleep 200
-SendEvent {Click, 1240, 400}
-Sleep 200
-SendEvent {Click, 675, 695, 2, right}
-Sleep 100
-SendPlay {esc}
-return
-
-:*?:/тпгувдп1::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 150
-SendPlay /gps {enter}
-Sleep 150
-SendEvent {Click, 650, 400}
-; прива
-Sleep 150
-SendEvent {Click, 1240, 400}
-; гос. учреждения
-Sleep 150
-SendEvent {Click, 660, 905, 2, right}
-Sleep 300
-SendPlay {esc}
-return
-
-:*?:/тпгувдм1::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 150
-SendPlay /gps {enter}
-Sleep 150
-SendEvent {Click, 740, 400}
-; мирка
-Sleep 250
-SendEvent {Click, 1240, 400}
-; гос. учреждения
-Sleep 250
-DllCall("SetCursorPos", int, 670, int, 878)
-Sleep 250
-SendEvent {WheelDown 50}
-Sleep 900
-SendEvent {Click, 670, 878, 2, right}
-sleep 150
-SendPlay {esc}
-return
-
-:*?:/тпгувдн1::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 150
-SendPlay /gps {enter}
-Sleep 150
-SendEvent {Click, 830, 400}
-; нева
-Sleep 150
-SendEvent {Click, 1240, 400}
-; гос. учреждения
-Sleep 400
-DllCall("SetCursorPos", int, 670, int, 878)
-Sleep 150
-SendEvent {WheelDown 50}
-Sleep 900
-SendEvent {Click, 670, 878, 2, right}
-sleep 150
-SendPlay {esc}
-return
-
-; ------------------------------- ТЕЛЕПОРТЫ ОКНА БЕЗ РАМОК/СТАНДАРТ (ТЕЛЕПОРТЫ)-------------------------------
-:*?:/тпофисп::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 130
-SendPlay /gps {enter}
-Sleep 120
-SendEvent {Click, 650, 400}
-Sleep 120
-SendEvent {Click, 1111, 400}
-Sleep 120
-SendEvent {Click, 650, 750, 2, right}
-Sleep 500
-SendEvent {esc}
-Sleep 400
-Sendplay {esc}
-return
-
-:*?:/тпбу::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 130
-SendPlay /gps {enter}
-Sleep 120
-SendEvent {Click, 650, 400}
-Sleep 120
-SendEvent {Click, 1055, 400}
-Sleep 120
-SendEvent {Click, 650, 616, 2, right}
-Sleep 200
-SendPlay {esc}
-return
-
-:*?:/тпбанкп::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 130
-SendPlay /gps {enter}
-Sleep 120
-SendEvent {Click, 650, 400}
-Sleep 120
-SendEvent {Click, 1240, 400}
-Sleep 120
-SendEvent {Click, 650, 616, 2, right}
-Sleep 200
-SendPlay {esc}
-return
-
-:*?:/тпбольницап::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 130
-SendPlay /gps {enter}
-Sleep 120
-SendEvent {Click, 650, 400}
-Sleep 120
-SendEvent {Click, 1240, 400}
-Sleep 120
-SendEvent {Click, 675, 675, 2, right}
-Sleep 200
-SendPlay {esc}
-return
-
-:*?:/тпбольницам::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 130
-SendPlay /gps {enter}
-Sleep 120
-SendEvent {Click, 740, 400}
-Sleep 120
-SendEvent {Click, 1240, 400}
-Sleep 120
-SendEvent {Click, 675, 675, 2, right}
-Sleep 200
-SendPlay {esc}
-return
-
-:*?:/тпбольницан::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 130
-SendPlay /gps {enter}
-Sleep 120
-SendEvent {Click, 830, 400}
-; нева
-Sleep 120
-SendEvent {Click, 1240, 400}
-Sleep 120
-SendEvent {Click, 675, 675, 2, right}
-Sleep 200
-SendPlay {esc}
-return
-
-:*?:/тпгувдп::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 130
-SendPlay /gps {enter}
-Sleep 120
-SendEvent {Click, 650, 400}
-; прива
-Sleep 120
-SendEvent {Click, 1240, 400}
-; гос. учреждения
-Sleep 120
-SendEvent {Click, 660, 888, 2, right}
-Sleep 200
-SendPlay {esc}
-return
-
-:*?:/тпгувдм::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 130
-SendPlay /gps {enter}
-Sleep 120
-SendEvent {Click, 740, 400}
-; мирка
-Sleep 120
-SendEvent {Click, 1240, 400}
-; гос. учреждения
-Sleep 120
-DllCall("SetCursorPos", int, 670, int, 878)
-Sleep 150
-SendEvent {WheelDown 50}
-Sleep 500
-SendEvent {Click, 670, 878, 2, right}
-sleep 222
-SendPlay {esc}
-return
-
-:*?:/тпгувдн::
-SendMessage, 0x50,, 0x4190419,, A
-sleep 130
-SendPlay /gps {enter}
-Sleep 120
-SendEvent {Click, 830, 400}
-; нева
-Sleep 120
-SendEvent {Click, 1240, 400}
-; гос. учреждения
-Sleep 120
-DllCall("SetCursorPos", int, 670, int, 878)
-Sleep 150
-SendEvent {WheelDown 50}
-Sleep 400
-SendEvent {Click, 670, 878, 2, right}
-sleep 222
-SendPlay {esc}
 return
