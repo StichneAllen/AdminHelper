@@ -23,7 +23,7 @@ if not A_IsAdmin
 scriptPath := A_ScriptFullPath
 scriptDir := A_ScriptDir
 scriptName := A_ScriptName
-currentVersion := "1.3.8"
+currentVersion := "1.4.0"
 githubVersionURL := "https://raw.githubusercontent.com/adminprovince/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/adminprovince/AdminHelper/refs/heads/main/Admin.ahk"
 githubChangelogURL := "https://raw.githubusercontent.com/adminprovince/AdminHelper/refs/heads/main/changelog.txt"
@@ -426,53 +426,181 @@ SendPlay, {space}[Проверка] Как меня зовут? {enter}
 return
 
 ^numpad0::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Проверка на отсутствие бота для работы пройдена {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Проверка на отсутствие бота для работы пройдена"
+    } else if (rand = 2) {
+        command := "Проверка на отсутствие софта пройтена."
+    } else if (rand = 3) {
+        command := "Проверка успешно пройдена."
+    } else if (rand = 4) {
+        command := "Проверка пройдена, удачи{!}"
+    } else if (rand = 5) {
+        command := "Проверка пройдена. Приятной игры{!}"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay %command%{enter}
 return
 
 !numpad1::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Приятной игры{!} {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Приятной игры{!}"
+    } else if (rand = 2) {
+        command := "Удачи{!}"
+    } else if (rand = 3) {
+        command := "удачи"
+    } else if (rand = 4) {
+        command := "приятной игры"
+    } else if (rand = 5) {
+        command := "Приятной игры"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 !numpad2::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay {space}Слежу {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "Слежу"
+    } else if (rand = 2) {
+        command := "слежу"
+    } else if (rand = 3) {
+        command := "Слежу."
+    } else if (rand = 4) {
+        command := "слежу."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 !numpad3::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Нарушений не заметил. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Нарушений не заметил."
+    } else if (rand = 2) {
+        command := "Нарушений нет."
+    } else if (rand = 3) {
+        command := "Не нарушает"
+    } else if (rand = 4) {
+        command := "не нарушает"
+    } else if (rand = 5) {
+        command := "нарушения не заметил"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 !numpad4::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Игрок наказан. Рады помочь{!} {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Игрок наказан."
+    } else if (rand = 2) {
+        command := "Наказан."
+    } else if (rand = 3) {
+        command := "наказан"
+    } else if (rand = 4) {
+        command := "Игрок наказан"
+    } else if (rand = 5) {
+        command := "Наказал."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 !numpad6::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Обратитесь в тех. поддержку {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Обратитесь в тех. поддержку"
+    } else if (rand = 2) {
+        command := "Напишите в тех. поддержку."
+    } else if (rand = 3) {
+        command := "Вам в тех. поддержку."
+    } else if (rand = 4) {
+        command := "Пишите в тех. поддержку"
+    } else if (rand = 5) {
+        command := "напишите в тех. поддержку."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 !numpad5::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Изучите данную информацию тут на province info {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Вам на Province info"
+    } else if (rand = 2) {
+        command := "Найдите на province.info"
+    } else if (rand = 3) {
+        command := "Изучите данную информацию на province.info"
+    } else if (rand = 4) {
+        command := "Ищите на province.info"
+    } else if (rand = 5) {
+        command := "вам на province.info"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 !numpad7::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay {space}Оставьте жалобу на форум. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Оставьте жалобу на форум."
+    } else if (rand = 2) {
+        command := "Пишите жалобу."
+    } else if (rand = 3) {
+        command := "Пишите жалобу на форум."
+    } else if (rand = 4) {
+        command := "пишите жалобу на форум"
+    } else if (rand = 5) {
+        command := "Напишите жалобу на форум."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 ^numpad7::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay {space}Не согласны с выданным наказанием? Обжалуйте его на форуме. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Обжалуйте наказание на форуме."
+    } else if (rand = 2) {
+        command := "Обжаловать наказание можно на форуме"
+    } else if (rand = 3) {
+        command := "Пишите обжалование на форум."
+    } else if (rand = 4) {
+        command := "пишите обжалование на форум"
+    } else if (rand = 5) {
+        command := "Напишите обжалование на форум."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 !numpad8::
-SendMessage, 0x50,, 0x4190419,, A
-SendPlay {space}Уважаемый игрок{!} Соблюдайте ПДД. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Соблюдайте ПДД."
+    } else if (rand = 2) {
+        command := "Не нарушайте ПДД."
+    } else if (rand = 3) {
+        command := "Уважаемый игрок{!} Соблюдайте ПДД"
+    } else if (rand = 4) {
+        command := "не нарушайте пдд"
+    } else if (rand = 5) {
+        command := "соблюдайте ПДД"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 !numpad9::
@@ -524,189 +652,483 @@ SendPlay /p Оставить заявку на трудоустройство м
 return
 
 :*?:/хранилище::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Приволжск - Услуги - Склад временного хранения. {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "/gps - Приволжск"
+    } else if (rand = 2) {
+        command := "/gps - Приволжск - Услуги - Склад временного хранения."
+    } else if (rand = 3) {
+        command := "/gps - Приволжск - Услуги"
+    } else if (rand = 4) {
+        command := "/gps"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/банк::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Гос.учереждения - Банк. {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "/gps - Город"
+    } else if (rand = 2) {
+        command := "/gps - Город - Гос.учереждения"
+    } else if (rand = 3) {
+        command := "/gps - Город - Гос.учереждения - Банк."
+    } else if (rand = 4) {
+        command := "/gps"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/тту::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Работа - ТТУ. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps - Город - Работа - ТТУ."
+    } else if (rand = 2) {
+        command := "/gps - Работа - ТТУ."
+    } else if (rand = 3) {
+        command := "/gps"
+    } else if (rand = 4) {
+        command := "/gps - Город - Работа"
+    } else if (rand = 5) {
+        command := "/gps - город - работа - тту"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/дальнобой::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Работы - Транспортная компания. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps - Город - Работа - Транспортная компания."
+    } else if (rand = 2) {
+        command := "/gps - Работа - транспортная компания."
+    } else if (rand = 3) {
+        command := "/gps"
+    } else if (rand = 4) {
+        command := "/gps - Город - Работа"
+    } else if (rand = 5) {
+        command := "/gps - город - работа - Транспортная компания"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/тюнинг::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Авто - Тюнинг-ателье. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps - Город - Авто - Тюнинг-ателье."
+    } else if (rand = 2) {
+        command := "/gps - Авто - Тюнинг-ателье"
+    } else if (rand = 3) {
+        command := "/gps"
+    } else if (rand = 4) {
+        command := "/gps - Город - Авто"
+    } else if (rand = 5) {
+        command := "/gps - город - авто - тюнинг-ателье."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/автошкола::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Гос.учреждения - Автошкола. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps - Город - Гос.учреждения - Автошкола."
+    } else if (rand = 2) {
+        command := "/gps - гос.учреждения"
+    } else if (rand = 3) {
+        command := "/gps"
+    } else if (rand = 4) {
+        command := "/gps - город - гос.учреждения"
+    } else if (rand = 5) {
+        command := "/gps - город - гос.учреждения - автошкола."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/больница::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Гос.учреждения - Больница. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps - Город - Гос.учреждения - Больница."
+    } else if (rand = 2) {
+        command := "/gps - гос.учреждения"
+    } else if (rand = 3) {
+        command := "/gps"
+    } else if (rand = 4) {
+        command := "/gps - город - гос.учреждения"
+    } else if (rand = 5) {
+        command := "/gps - город - гос.учреждения - больница"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/военкомат::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Приволжск/Мирный - Гос.учреждения - Военкомат. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps - Приволжск/Мирный - Гос.учреждения - Военкомат."
+    } else if (rand = 2) {
+        command := "/gps - город - гос.учреждения - военкомат"
+    } else if (rand = 3) {
+        command := "/gps - гос.учреждения - Военкомат."
+    } else if (rand = 4) {
+        command := "/gps - Город - гос.учреждения"
+    } else if (rand = 5) {
+        command := "/gps"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/вч::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Мирный - Гос.учреждения - Воинская часть. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps"
+    } else if (rand = 2) {
+        command := "/gps - Мирный - Гос.учреждения - Воинская часть."
+    } else if (rand = 3) {
+        command := "/gps - мирный - гос.учреждения - воинская часть."
+    } else if (rand = 4) {
+        command := "/gps - Мирный - Гос.учреждения"
+    } else if (rand = 5) {
+        command := "/gps"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/полиция::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Гос.учреждения - Полицейский участок. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps"
+    } else if (rand = 2) {
+        command := "/gps - город - гос.учреждения - полицейский участок"
+    } else if (rand = 3) {
+        command := "/gps - город - гос.учреждения"
+    } else if (rand = 4) {
+        command := "/gps - гос.учреждения."
+    } else if (rand = 5) {
+        command := "/gps"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/отдых::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - ближайшие места - Магазин "Все для отдыха". {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps - Ближайшие места."
+    } else if (rand = 2) {
+        command := "/gps - ближайшие места - Магазин Все для отдыха."
+    } else if (rand = 3) {
+        command := "/gps - Город - ближайшие места - магазин все для отдыха"
+    } else if (rand = 4) {
+        command := "/gps"
+    } else if (rand = 5) {
+        command := "/gps - ближайшие места"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/автомагазин::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - ближайшие места - Автомагазин. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps- ближайшие места"
+    } else if (rand = 2) {
+        command := "/gps"
+    } else if (rand = 3) {
+        command := "/gps - ближайшие места - автомагазин."
+    } else if (rand = 4) {
+        command := "/gps - Ближайшие места - Автомагазин"
+    } else if (rand = 5) {
+        command := "/gps - Город - Ближайшие места - Автомагазин."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/скупщик::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - ближайшие места - Скупщик рыбы и грибов. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps - Ближайшие места - Скупщик."
+    } else if (rand = 2) {
+        command := "/gps - ближайшие места - Скупщик рыбы и грибов."
+    } else if (rand = 3) {
+        command := "/gps - Город - Ближайшие места"
+    } else if (rand = 4) {
+        command := "/gps"
+    } else if (rand = 5) {
+        command := "/gps - Город - ближайшие места - Скупщик рыбы и грибов."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/автосалон::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Авто - Автосалон. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps - Город - Авто - Автосалон."
+    } else if (rand = 2) {
+        command := "/gps"
+    } else if (rand = 3) {
+        command := "/gps - авто - автосалон"
+    } else if (rand = 4) {
+        command := "/gps - город - авто - автосалон"
+    } else if (rand = 5) {
+        command := "/gps - Авто - Автосалон."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/автостоянка::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Авто - Автостоянка. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps"
+    } else if (rand = 2) {
+        command := "/gps - город - авто - автостоянка."
+    } else if (rand = 3) {
+        command := "/gps - Город - Авто - Автостоянка"
+    } else if (rand = 4) {
+        command := "/gps - авто - автостоянка"
+    } else if (rand = 5) {
+        command := "/gps - Авто"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/маэс::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Мирный - Интересные места - АЭС "МирнАтом". {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps"
+    } else if (rand = 2) {
+        command := "/gps - Мирный - Интересные места - АЭС"
+    } else if (rand = 3) {
+        command := "/gps - интересные места - АЭС."
+    } else if (rand = 4) {
+        command := "/gps - мирный - интересные места - АЭС."
+    } else if (rand = 5) {
+        command := "/gps - Мирный"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/звезда::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay 1 звезда = 10 минут в КПЗ. 1 звезда = 1 час прибывания на воле. {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "1 звезда - 10 минут в КПЗ/1 час на воле. "
+    } else if (rand = 2) {
+        command := "1 звезда = 10 минут в КПЗ или 1 час игры"
+    } else if (rand = 3) {
+        command := "1 звезда = 10 минут в КПЗ. 1 звезда = 1 час прибывания на воле."
+    } else if (rand = 4) {
+        command := "1 звезда - 1 час на воле/10 минут в КПЗ."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/стадион::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Мирный - Интересные места - Стадион "Арена Мирный". {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps"
+    } else if (rand = 2) {
+        command := "/gps - Мирный - Интересные места - Арена Мирный"
+    } else if (rand = 3) {
+        command := "/gps - Мирный - Интересные места"
+    } else if (rand = 4) {
+        command := "/gps - мирный"
+    } else if (rand = 5) {
+        command := "/gps - мирный - интересные места."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/ржд::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Мирный - Гос.учреждения - Здание РЖД. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps"
+    } else if (rand = 2) {
+        command := "/gps - мирный - РЖД"
+    } else if (rand = 3) {
+        command := "/gps - мирный - Гос.учреждения."
+    } else if (rand = 4) {
+        command := "/gps - Мирный - Гос.учреждения"
+    } else if (rand = 5) {
+        command := "/gps - мирный - гос.учреждения - здание РЖД."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/летная школа::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Мирный - Гос.учреждения - Летная школа. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps"
+    } else if (rand = 2) {
+        command := "/gps - мирный - гос.учреждения - летная школа."
+    } else if (rand = 3) {
+        command := "/gps - мирный - летная школа."
+    } else if (rand = 4) {
+        command := "/gps - мирный - гос.учреждения"
+    } else if (rand = 5) {
+        command := "/gps - Мирный - Гос.учреждения - Летная школа"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/водная школа::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Невский - Гос.учреждения - Водная школа. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps"
+    } else if (rand = 2) {
+        command := "/gps - невский - гос.учреждения - Водная школа."
+    } else if (rand = 3) {
+        command := "/gps - невский - водная школа."
+    } else if (rand = 4) {
+        command := "/gps - Невский - гос.учреждения"
+    } else if (rand = 5) {
+        command := "/gps - Невский - Гос.учреждения - Водная школа"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/гостиница::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Услуги - Гостиница. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps"
+    } else if (rand = 2) {
+        command := "/gps - услуги - гостиница."
+    } else if (rand = 3) {
+        command := "/gps - город - услуги - гостиница."
+    } else if (rand = 4) {
+        command := "/gps - услуги - гостиница"
+    } else if (rand = 5) {
+        command := "/gps - Услуги - Гостиница."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/порт::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Невский - Интересные места - Морской порт Невского. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "/gps"
+    } else if (rand = 2) {
+        command := "/gps - Невский - Интересные места"
+    } else if (rand = 3) {
+        command := "/gps - Невский"
+    } else if (rand = 4) {
+        command := "/gps - невский - интересные места."
+    } else if (rand = 5) {
+        command := "/gps - невский"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/войс::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay Вкл(зажать): bind клавиша doWn voiceptt 1 | Выкл(отжать): bind клавиша up voiceptt 0 {enter}
+    Random, rand, 1, 3
+    if (rand = 1) {
+        command := "bind клавиша doWn voiceptt 1 | bind клавиша up voiceptt 0"
+    } else if (rand = 2) {
+        command := "bind клавиша voiceptt 1"
+    } else if (rand = 3) {
+        command := "bind клавиша voiceptt 1 | bind клавиша voiceptt 0"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 3000
+    SendPlay %command%{enter}
 return
 
 :*?:/эвакуатор::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay Управлять эвакуатором - /evacuate id | /repair id | /mehlist | Numpad 2,8 | Ins Del. {enter}
+    Random, rand, 1, 3
+    if (rand = 1) {
+        command := "/evacuate id | /repair id"
+    } else if (rand = 2) {
+        command := "/repair id | /evacuate id | /mehlist"
+    } else if (rand = 3) {
+        command := "/evacuate id | /repair id | /mehlist | Numpad 2,8 | Ins Del."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/крюк::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay bind num_8 special_control_up - поднять крюк | bind num_2 special_control_doWn - опустить крюк. {enter}
+    Random, rand, 1, 3
+    if (rand = 1) {
+        command := "bind num_8 special_control_up | bind num_2 special_control_doWn "
+    } else if (rand = 2) {
+        command := "bind num_2 special_control_doWn | bind num_8 special_control_up"
+    } else if (rand = 3) {
+        command := "bind num_8 special_control_up - поднять крюк | bind num_2 special_control_doWn - опустить крюк"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/двери::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind 2 open_doors - открытие дверей в общественном транспорте {enter}
+SendPlay bind 2 open_doors {enter}
 return
 
 :*?:/скорость::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind f5 speed_limit 5-320 - включить/выключить лимит скорости на авто.{enter}
+SendPlay bind f5 speed_limit 5-320{enter}
 return
 
 :*?:/шасси::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind 2 sub_mission - управление шасси самолета (на учебном не работает) {enter}
+SendPlay bind 2 sub_mission {enter}
 return
 
 :*?:/маячки::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind j speclight_onoff - Маячки {enter}
+SendPlay bind j speclight_onoff {enter}
 return
 
 :*?:/ремень::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind b seatbelt - ремень безопасности {enter}
+SendPlay bind b seatbelt {enter}
 return
 
 :*?:/стрелки::
@@ -716,9 +1138,21 @@ SendPlay, Стрелочки: arroW_l - влево | arroW_r - вправо | ar
 return
 
 :*?:/впс::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay  Изучите правила сервера {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Изучите правила сервера"
+    } else if (rand = 2) {
+        command := "Изучите правила сервера на форуме"
+    } else if (rand = 3) {
+        command := "Ознакомьтесь с правилами сервера"
+    } else if (rand = 4) {
+        command := "Изучите свод правил сервера"
+    } else if (rand = 5) {
+        command := "Проверьте правила сервера на форуме"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/мп::
@@ -730,7 +1164,7 @@ return
 :*?:/круиз::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind x cruise_control - включить/выключить круиз контроль. {enter}
+SendPlay bind x cruise_control {enter}
 return
 
 ; ------------------------------- АДМИН КОМАНДЫ (ОСНОВНОЕ)-------------------------------
@@ -1424,27 +1858,71 @@ return
 ; ------------------------------- БИНД КЛАВИШ NUMPAD (ОСНОВНОЕ)-------------------------------
 
 :*?:/скидка::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay Промокод даст скидку 20проц. на покупку квартиры или 25проц. на покупку авто до 700.000 рублей. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Промокод даст скидку на покупку квартиры или авто"
+    } else if (rand = 2) {
+        command := "Промокод дает скидку на покупку авто или квартиру"
+    } else if (rand = 3) {
+        command := "Промокод снижает стоимость при покупке авто или квартиры"
+    } else if (rand = 4) {
+        command := "Промокод даёт выгоду при покупке квартиры или авто"
+    } else if (rand = 5) {
+        command := "Промокод даст меньшую стоимость при покупке авто или квартиры"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/права::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay Легковые автомобили "B" - 5.000. Автобусы "D" - 7.000. Грузовые автомобили "C" - 8.000. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Изучите стоимость прав в автошколе"
+    } else if (rand = 2) {
+        command := "Категории: B–5 000, D–7 000, C–8 000."
+    } else if (rand = 3) {
+        command := "Изучите стоимость прав в автошколе"
+    } else if (rand = 4) {
+        command := "Изучите стоимость в автошколе"
+    } else if (rand = 5) {
+        command := "Стоимость ВУ можно посмотреть в автошколе"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/проверкаафк::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay Вы тут? Ответ в /report - Да. {enter}
+    Random, rand, 1, 3
+    if (rand = 1) {
+        command := "Вы тут? Ответ в /report - Да."
+    } else if (rand = 2) {
+        command := "Вы тут?"
+    } else if (rand = 3) {
+        command := "Проверка. Вы тут?"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/дистанция::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay Соблюдайте дистанцию в 2-3 вагона, иначе последует наказание. {enter}
+    Random, rand, 1, 5
+    if (rand = 1) {
+        command := "Соблюдайте дистанцию"
+    } else if (rand = 2) {
+        command := "соблюдайте дистанцию{!}"
+    } else if (rand = 3) {
+        command := "Соблюдайте дистанцию."
+    } else if (rand = 4) {
+        command := "соблюдайте дистанцию"
+    } else if (rand = 5) {
+        command := "Стоимость ВУ можно посмотреть в автошколе"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/свет::
@@ -1454,9 +1932,19 @@ SendPlay Включите свет в салоне и фары (клавиши K
 return
 
 :*?:/номер::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay Номера можно получить в полицейском участке Мирного/Приволжска или в автошколе Невского. {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "Номера можно получить в полицейском участке."
+    } else if (rand = 2) {
+        command := "Номера можно получить в автошколе"
+    } else if (rand = 3) {
+        command := "Номера можно получить в полицейском участке или в автошколе"
+    } else if (rand = 4) {
+        command := "номера можно получить в автошколе или полицейском участке"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/f21::
@@ -1495,16 +1983,40 @@ Sleep 100
 SendPlay Задонатить в игру можно через оф. сайт проекта. {enter}
 return
 
+:*?:/донат::
+    Random, rand, 1, 3
+    if (rand = 1) {
+        command := "Задонатить можно через сайт проекта"
+    } else if (rand = 2) {
+        command := "Задонатить можно через офф сайт проекта."
+    } else if (rand = 3) {
+        command := "Донат в игру возможен через оф. сайт проекта"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
+return
+
 :*?:/баг::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay При обнаружении бага обратитесь в дискорд сервер проекта. {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "Сообщите про баг в дискорд-сервере проекта"
+    } else if (rand = 2) {
+        command := "Если обнаружили баг, обратитесь в дискорд проекта."
+    } else if (rand = 3) {
+        command := "При обнаружении бага обратитесь в дискорд сервер проекта"
+    } else if (rand = 4) {
+        command := "Сообщить о баге можно в дискорд сервер проекта."
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/берег::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay Администрация не телепортирует. Ищите берег самостоятельно {enter}
+SendPlay Ищите берег самостоятельно {enter}
 return
 
 :*?:/поезд::
@@ -1538,15 +2050,35 @@ SendPlay /gps - Город - Работа - Дорожная служба {enter
 return
 
 :*?:/жбк::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Приволжск - Работа - Завод ЖБК {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "/gps - Приволжск - Работа"
+    } else if (rand = 2) {
+        command := "/gps - приволжск - работа"
+    } else if (rand = 3) {
+        command := "/gps - приволжск - работа - завод ЖБК"
+    } else if (rand = 4) {
+        command := "/gps - Приволжск"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/лесопилка::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Приволжск - Работа - Лесопилка (Жуковский) {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "/gps - Приволжск - Работа"
+    } else if (rand = 2) {
+        command := "/gps - Приволжск - работа"
+    } else if (rand = 3) {
+        command := "/gps - Работа - Лесопилка"
+    } else if (rand = 4) {
+        command := "/gps - работа"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/пицца::
@@ -1562,9 +2094,19 @@ SendPlay /gps - Город - Работа - Трамвайное депо {enter
 return
 
 :*?:/стройка::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Приволжск/Мирный - Работа - Стройплощадка {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "/gps - работа - стройплощадка"
+    } else if (rand = 2) {
+        command := "/gps - Работа - Стройплощадка"
+    } else if (rand = 3) {
+        command := "/gps - Работа."
+    } else if (rand = 4) {
+        command := "/gps - работа"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/такси::
@@ -1574,15 +2116,25 @@ SendPlay /gps - Город - Работа - Таксопарк {enter}
 return
 
 :*?:/шахта::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Мирный - Работа - Шахта {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "/gps - мирный - работа"
+    } else if (rand = 2) {
+        command := "/gps - Мирный - Работа"
+    } else if (rand = 3) {
+        command := "/gps - Работа - Шахта"
+    } else if (rand = 4) {
+        command := "/gps"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/вту::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay /gps - Невский - Работа - ВТУ (Вончанск) {enter}
+SendPlay /gps - Невский - Работа - ВТУ{enter}
 return
 
 :*?:/октябрь::
@@ -1598,9 +2150,19 @@ SendPlay /gps - Невский - Работа - Табачный завод {ent
 return
 
 :*?:/офис::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay /gps - Город - Интересные места - Офисный центр {enter}
+    Random, rand, 1, 4
+    if (rand = 1) {
+        command := "/gps - Город - Интересные места"
+    } else if (rand = 2) {
+        command := "/gps - интересные места - офисный цент"
+    } else if (rand = 3) {
+        command := "/gps - Интересные места - Офисный цент"
+    } else if (rand = 4) {
+        command := "/gps"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 1000
+    SendPlay %command%{enter}
 return
 
 :*?:/гтрек::
@@ -1618,49 +2180,49 @@ return
 :*?:/лента::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay /gps - Приволжск - Интересные места - ТЦ "Лента" {enter}
+SendPlay /gps - Приволжск - Интересные места {enter}
 return
 
 :*?:/вивалэнд::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay /gps - Приволжск - Услуги - ТРК "ВиваЛэнд" {enter}
+SendPlay /gps - Приволжск - Услуги {enter}
 return
 
 :*?:/цветы::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay /gps - Приволжск - Услуги - Цветочная лавка Николая {enter}
+SendPlay /gps - Приволжск - Услуги {enter}
 return
 
 :*?:/аренда::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay /gps - Город - Услуги - Аренда авто/великов/лодок {enter}
+SendPlay /gps - Город - Услуги {enter}
 return
 
 :*?:/бар::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay /gps - Приволжск/Мирный - Услуги - Бар {enter}
+SendPlay /gps - Приволжск/Мирный - Услуги {enter}
 return
 
 :*?:/пк::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay /gps - Город - Ближайшие места - Компьютерный клуб {enter}
+SendPlay /gps - Город - Ближайшие места {enter}
 return
 
 :*?:/спортзал::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay /gps - Мирный - Услуги - Спортивный зал {enter}
+SendPlay /gps - Мирный - Услуги {enter}
 return
 
 :*?:/парашют::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay /gps - Мирный/Невский - Услуги - Прыжок с парашютом {enter}
+SendPlay /gps - Мирный/Невский - Услуги {enter}
 return
 
 :*?:/тир::
@@ -1672,35 +2234,35 @@ return
 :*?:/чат::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind t chatbox chatboxsay - IC чат {enter}
+SendPlay bind t chatbox chatboxsay {enter}
 return
 
 :*?:/телефон::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind u phone - достать/убрать телефон {enter}
+SendPlay bind u phone {enter}
 return
 
 :*?:/карпанель::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind f3 car_panel - панель авто (F3) {enter}
+SendPlay bind f3 car_panel {enter}
 return
 
 :*?:/двигатель::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind z engine - зажигание двигателя {enter}
+SendPlay bind z engine {enter}
 return
 
 :*?:/скрин::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind f12 screenshot - Скриншот (F12) {enter}
+SendPlay bind f12 screenshot {enter}
 return
 
 :*?:/карта::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay bind f11 radar - Карта (F11) {enter}
+SendPlay bind f11 radar {enter}
 return
