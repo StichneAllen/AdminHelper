@@ -23,7 +23,7 @@ if not A_IsAdmin
 scriptPath := A_ScriptFullPath
 scriptDir := A_ScriptDir
 scriptName := A_ScriptName
-currentVersion := "1.3.7"
+currentVersion := "1.3.8"
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
 githubChangelogURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/changelog.txt"
