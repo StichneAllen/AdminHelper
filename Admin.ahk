@@ -23,7 +23,7 @@ if not A_IsAdmin
 scriptPath := A_ScriptFullPath
 scriptDir := A_ScriptDir
 scriptName := A_ScriptName
-currentVersion := "1.3.6"
+currentVersion := "1.3.7"
 githubVersionURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/Admin.ahk"
 githubChangelogURL := "https://raw.githubusercontent.com/StichneAllen/AdminHelper/refs/heads/main/changelog.txt"
@@ -480,12 +480,12 @@ return
 
 !numpad0::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}[Проверка на бота] Как меня зовут? {enter}
+SendPlay, {space}[Проверка] Как меня зовут? {enter}
 return
 
 ^numpad0::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Проверка на отсутствие софта пройдена. Приятной игры{!} {enter}
+SendPlay, {space}Проверка на отсутствие бота для работы пройдена. {enter}
 return
 
 !numpad1::
@@ -510,22 +510,22 @@ return
 
 !numpad6::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Обратитесь в тех. поддержку - vk.com/provincehelp {enter}
+SendPlay, {space}Обратитесь в тех. поддержку {enter}
 return
 
 !numpad5::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay, {space}Изучите данную информацию тут - https://info.gtaprovince.ru {enter}
+SendPlay, {space}Изучите данную информацию тут на province info {enter}
 return
 
 !numpad7::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay {space}Оставьте жалобу на форум - https://vk.cc/cyNCUI {enter}
+SendPlay {space}Оставьте жалобу на форум. {enter}
 return
 
 ^numpad7::
 SendMessage, 0x50,, 0x4190419,, A
-SendPlay {space}Не согласны с выданным наказанием? Обжалуйте его на форуме - https://vk.cc/cyNCSD {enter}
+SendPlay {space}Не согласны с выданным наказанием? Обжалуйте его на форуме. {enter}
 return
 
 !numpad8::
@@ -1526,7 +1526,7 @@ return
 :*?:/собес::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay Все собеседования можно посмотреть тут - https://gtajournal.online/gov?s=2 {enter}
+SendPlay Все собеседования можно посмотреть в телефоне. {enter}
 return
 
 :*?:/нум::
@@ -1550,13 +1550,13 @@ return
 :*?:/донат::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay Задонатить в игру можно через оф. сайт проекта - https://gtaprovince.ru/donate {enter}
+SendPlay Задонатить в игру можно через оф. сайт проекта. {enter}
 return
 
 :*?:/баг::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay При обнаружении бага обратитесь сюда - https://discord.gg/CZdhXZfM3J {enter}
+SendPlay При обнаружении бага обратитесь в дискорд сервер проекта. {enter}
 return
 
 :*?:/берег::
@@ -1568,7 +1568,7 @@ return
 :*?:/поезд::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay Расписание поездов можно посмотреть тут - https://vk.cc/cHe1kK {enter}
+SendPlay Расписание поездов можно посмотреть на форуме. {enter}
 return
 
 :*?:/атп::
