@@ -15,7 +15,8 @@ if not A_IsAdmin
     Run *RunAs "%A_ScriptFullPath%" 
     ExitApp
 }
-
+;иконка в меню
+;Menu, Tray, Icon, C:\Program Files\AdminHelper\icon.ico
 ;________________________________________________________________________________________________________________________________________________________________________________________
 
 ; Авто обновление
@@ -23,7 +24,7 @@ if not A_IsAdmin
 scriptPath := A_ScriptFullPath
 scriptDir := A_ScriptDir
 scriptName := A_ScriptName
-currentVersion := "1.4.0"
+currentVersion := "1.4.1"
 githubVersionURL := "https://raw.githubusercontent.com/adminprovince/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/adminprovince/AdminHelper/refs/heads/main/Admin.ahk"
 githubChangelogURL := "https://raw.githubusercontent.com/adminprovince/AdminHelper/refs/heads/main/changelog.txt"
@@ -440,7 +441,7 @@ return
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay %command%{enter}
+    SendPlay {space}%command%{enter}
 return
 
 !numpad1::
@@ -458,7 +459,7 @@ return
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 1000
-    SendPlay %command%{enter}
+    SendPlay {space}%command%{enter}
 return
 
 !numpad2::
@@ -474,7 +475,7 @@ return
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 1000
-    SendPlay %command%{enter}
+    SendPlay {space}%command%{enter}
 return
 
 !numpad3::
@@ -492,7 +493,7 @@ return
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 1000
-    SendPlay %command%{enter}
+    SendPlay {space}%command%{enter}
 return
 
 !numpad4::
@@ -510,7 +511,7 @@ return
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 1000
-    SendPlay %command%{enter}
+    SendPlay {space}%command%{enter}
 return
 
 !numpad6::
@@ -528,7 +529,7 @@ return
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 1000
-    SendPlay %command%{enter}
+    SendPlay {space}%command%{enter}
 return
 
 !numpad5::
@@ -546,7 +547,7 @@ return
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 1000
-    SendPlay %command%{enter}
+    SendPlay {space}%command%{enter}
 return
 
 !numpad7::
@@ -564,7 +565,7 @@ return
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 1000
-    SendPlay %command%{enter}
+    SendPlay {space}%command%{enter}
 return
 
 ^numpad7::
@@ -582,7 +583,7 @@ return
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 1000
-    SendPlay %command%{enter}
+    SendPlay {space}%command%{enter}
 return
 
 !numpad8::
@@ -600,7 +601,7 @@ return
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 1000
-    SendPlay %command%{enter}
+    SendPlay {space}%command%{enter}
 return
 
 !numpad9::
