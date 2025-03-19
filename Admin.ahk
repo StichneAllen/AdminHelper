@@ -22,7 +22,7 @@ if not A_IsAdmin
 scriptPath := A_ScriptFullPath
 scriptDir := A_ScriptDir
 scriptName := A_ScriptName
-currentVersion := "1.5.0"
+currentVersion := "1.5.1"
 githubVersionURL := "https://raw.githubusercontent.com/adminprovince/AdminHelper/refs/heads/main/version.txt"
 githubScriptURL := "https://raw.githubusercontent.com/adminprovince/AdminHelper/refs/heads/main/Admin.ahk"
 githubChangelogURL := "https://raw.githubusercontent.com/adminprovince/AdminHelper/refs/heads/main/changelog.txt"
@@ -417,6 +417,8 @@ GuiClose:
 ExitApp
 
 ------------------------------------АДМИН ТЭГ------------------------------------
+
+CapsLock::Return
 
 !numpad0::
 SendMessage, 0x50,, 0x4190419,, A
@@ -2120,7 +2122,7 @@ return
 return
 
 :*?:/номер::
-    Random, rand, 1, 4
+    Random, rand, 1, 8
     if (rand = 1) {
         command := "Номера можно получить в полицейском участке"
     } else if (rand = 2) {
@@ -2167,10 +2169,28 @@ Sleep 100
 SendPlay /jailtime
 return
 
-:*?:/а31::
-SendMessage, 0x50,, 0x4190419,, A
-Sleep 100
-SendPlay F3 - Эвакуировать авто.
+:*?:/номер::
+    Random, rand, 1, 8
+    if (rand = 1) {
+        command := "F3 - Эвакуировать авто"
+    } else if (rand = 2) {
+        command := "F3 - эвакуировать авто"
+    } else if (rand = 3) {
+        command := "F3 - Эвакуировать"
+    } else if (rand = 4) {
+        command := "F3 - эвакуировать"
+    } else if (rand = 5) {
+        command := "F3 - эвакуировать"
+    } else if (rand = 6) {
+        command := "F3 - эвакуировать авто"
+    } else if (rand = 7) {
+        command := "F3 - Эвакуировать"
+    } else if (rand = 8) {
+        command := "F3 - Эвакуировать авто"
+    }
+    SendMessage, 0x50,, 0x4190419,, A
+    Sleep 100
+    SendPlay %command%
 return
 
 :*?:/донат::
