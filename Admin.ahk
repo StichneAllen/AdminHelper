@@ -2090,7 +2090,7 @@ return
     } else if (rand = 4) {
         command := "соблюдайте дистанцию"
     } else if (rand = 5) {
-        command := "Стоимость ВУ можно посмотреть в автошколе"
+        command := "Соблюдайте дистанцию{!}"
     }
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
