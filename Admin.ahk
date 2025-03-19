@@ -1373,7 +1373,7 @@ return
 :*?:/выходрп::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay, banname  d 7 Off от РП by %SavedTag%
+SendPlay, banname  d 7 Офф от РП by %SavedTag%
 Sleep 100
 SendPlay, {Home}{Right 8}
 return
@@ -1416,7 +1416,7 @@ return
     Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname  d %Days% DM игрока by %SavedTag%
+    SendPlay, banname  d %Days% DM by %SavedTag%
     SendPlay, {Home}{Right 8}
 return
 
@@ -1512,7 +1512,7 @@ return
 :*?:/политпров::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay banname  d 30 Политическая провокация by %SavedTag%
+SendPlay banname  d 30 Полит. провокация by %SavedTag%
 Sleep 100
 SendPlay, {Home}{Right 8}
 return
@@ -1520,7 +1520,7 @@ return
 :*?:/нацизм::
 SendMessage, 0x50,, 0x4190419,, A
 Sleep 100
-SendPlay banname  d 30 Проявление нацизма/расизма by %SavedTag%
+SendPlay banname  d 30 Проявление нацизма by %SavedTag%
 Sleep 100
 SendPlay, {Home}{Right 8}
 return
@@ -1558,7 +1558,7 @@ return
     Days := Trim(Days)
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, banname  d %Days% Шантаж игрока by %SavedTag%
+    SendPlay, banname  d %Days% Шантаж by %SavedTag%
     SendPlay, {Home}{Right 8}
 return
 
@@ -1622,27 +1622,6 @@ Sleep 100
 SendPlay, {Home}{Right 8}
 return
 
-:*?:/нонрп::
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Nick_Name: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Name, V, {Enter}
-    ID := Trim(ID)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, Кол-во дней: 
-    Sleep 100
-    SendPlay, {Home}{Right 99}
-    Input, Days, V, {Enter}
-    UserInput := Trim(UserInput)
-
-    SendMessage, 0x50,, 0x4190419,, A
-    Sleep 100
-    SendPlay, banname %Name% d %Days% NonRP by %SavedTag%
-return
 
 :*?:/нонрп::
     SendMessage, 0x50,, 0x4190419,, A
@@ -1742,7 +1721,7 @@ return
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, ajail %ID% 30 Езда по газонам/тротуарам by %SavedTag%
+    SendPlay, ajail %ID% 30 ЕПТ by %SavedTag%
 return
 
 :*?:/епр::
@@ -1756,7 +1735,7 @@ return
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, ajail %ID% 15 Движение по рельсам by %SavedTag%
+    SendPlay, ajail %ID% 15 Езда по рельсам by %SavedTag%
 return
 
 :*?:/красные::
@@ -1770,7 +1749,7 @@ return
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, ajail %ID% 30 Проезд на красный светофор х2 by %SavedTag%
+    SendPlay, ajail %ID% 30 Проезд на красный х2 by %SavedTag%
 return
 
 :*?:/встречка::
@@ -1784,7 +1763,7 @@ return
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, ajail %ID% 30 Движение по встречной полосе by %SavedTag%
+    SendPlay, ajail %ID% 30 Встречка by %SavedTag%
 return
 
 :*?:/музыка::
@@ -1828,7 +1807,7 @@ return
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, muted %ID% h %Time% Offtop in report by %SavedTag%
+    SendPlay, muted %ID% h %Time% Оффтоп в репорт by %SavedTag%
 return
 
 :*?:/мг::
@@ -1872,7 +1851,7 @@ return
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, muted %ID% h %Time% Caps Lock by %SavedTag%
+    SendPlay, muted %ID% h %Time% Капс by %SavedTag%
 return
 
 :*?:/флуд::
@@ -1894,7 +1873,7 @@ return
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, muted %ID% h %Time% Flood by %SavedTag%
+    SendPlay, muted %ID% h %Time% Флуд by %SavedTag%
 return
 
 :*?:/мат::
@@ -1916,7 +1895,7 @@ return
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, muted %ID% h %Time% Употребление нецензурных слов by %SavedTag%
+    SendPlay, muted %ID% h %Time% Маты by %SavedTag%
 return
 
 :*?:/оскигрок::
@@ -1988,7 +1967,7 @@ return
 
     SendMessage, 0x50,, 0x4190419,, A
     Sleep 100
-    SendPlay, kicked %ID% Движение с выкл. фарами/светом в салоне by %SavedTag%
+    SendPlay, kicked %ID% Без света (ОТ) by %SavedTag%
 return
 
 :*?:/пантограф::
